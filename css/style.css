@@ -1,0 +1,97 @@
+/* color: rgb(70, 65, 65); gris oscuro*/
+
+/* color: rgb(153, 153, 153); gris claro */
+
+/* color: rgb(189, 142, 23);  naranja */
+
+@font-face {
+    font-family: 'HaydonBrush';
+    src: url("../fonts/HaydonBrush.ttf");
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url("../fonts/Cocogoose.otf");
+}
+
+.navbar-brand {
+    font-family: 'HaydonBrush';
+    font-size: 3.2em;
+}
+
+.linksNav a {
+    font-family: 'Cocogoose';
+    font-size: 2em;
+    color: rgb(156, 118, 20);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(189, 142, 23);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: rgb(156, 118, 20);
+}
+
+.personalizarFooter {
+    color: rgb(189, 142, 23);
+}
+
+.encabezado h1, label, button, .loading {
+    color: rgb(189, 142, 23);
+    font-family: 'Cocogoose';
+    font-size: 1.3em;
+}
+
+.encabezado h1 {
+    font-size: 3em;
+}
+
+.text-Info p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.deshabilitado {
+    visibility: hidden;
+}
+
+#imagenCaptcha1, #imagenCaptcha2, #imagenCaptcha3 {
+    width: 95%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.listaProductos h1 {
+    margin-bottom: 0;
+    font-family: 'Cocogoose';
+    font-size: 1.6em;
+    font-weight: lighter;
+    color: rgb(189, 142, 23);
+}
+
+.listaProductoElemento {
+    list-style: square;
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.listaProductos ul {
+    list-style: none;
+}
+
+a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):hover {
+    /*Titulo del navbar*/
+    color: #FFF;
+}
+
+.tituloTabla {
+    font-family: 'Cocogoose';
+    color: rgb(156, 118, 20);
+    font-size: 1.5em;
+}
+
+.filaOculta {
+    display: none;
+}
