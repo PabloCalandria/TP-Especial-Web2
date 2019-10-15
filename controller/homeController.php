@@ -13,7 +13,7 @@ class homeController {
         $this->view = new homeView();
     }
     
-    function homeView(){
+    function HomeView(){
         $this->view->Mostrar();
     }
 }

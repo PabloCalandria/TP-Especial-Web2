@@ -2,11 +2,7 @@
 
     require('libs/Smarty.class.php');
 
-    class homeView{
-
-        function __construct(){
-
-        }
+    class homeView {
     
         function Mostrar(){
             
@@ -15,9 +11,8 @@
             $smarty = new Smarty(); 
 
         //    $smarty->debugging = true;  Abre una ventana mostrando toda la informacion
-            $smarty->assign('BASE_URL',BASE_URL);
+            
             $smarty->display('templates/home.tpl');           
         }
-
     }
 ?>
