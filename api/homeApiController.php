@@ -12,10 +12,13 @@ class homeController {
         //$this->model = new TareasModel();
         $this->view = new homeView();
     }
-    
-    function homeView(){
-        $this->view->Mostrar();
+    public function homeView($params = null) {
+        $this->view->response($tareas, 200);
     }
+
+   // function (){
+   //     $this->view->Mostrar();
+   //}
 }
 
 
