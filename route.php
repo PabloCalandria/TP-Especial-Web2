@@ -1,11 +1,14 @@
 <?php
     require_once "controller/homeController.php";
     require_once "controller/productsController.php";
+    require_once "controller/contactUsController.php";
+
 
     
     $partesURL = explode("/", $_GET["action"]);
     $controllerHome = new homeController();
     $controllerProducts= new productsController();
+    $controllerContactUs= new contactUsController();
 
 
     if ($partesURL[0] == "index"){
