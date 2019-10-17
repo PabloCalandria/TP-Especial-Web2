@@ -8,7 +8,7 @@
     $controllerProducts= new productsController();
 
 
-    if ($partesURL[0] == ""){
+    if ($partesURL[0] == "index"){
         $controllerHome->HomeView();   //sino viene ninguna accion, inicia la funcion del archivo about.php
     }
     else{

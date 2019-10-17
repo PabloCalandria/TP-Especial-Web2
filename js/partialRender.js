@@ -338,70 +338,70 @@ function cargaPartialRender() {
 
 
     //PARTIAL RENDER
-    async function loadIndex() {
-        let container = document.querySelector("#use-ajax");
-        container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Loading...</h1></div>";
-        try {
-            let response = await fetch("pages/home.html");
-            if (response.ok) {
-                let t = await response.text()
-                container.innerHTML = t;
-            }
-            else
-                container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Error - Failed URL!</h1></div>";
-        }
-        catch (response) {
-            container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Connection error</h1></div>";
-        };
-    }
+    // async function loadIndex() {
+    //     let container = document.querySelector("#use-ajax");
+    //     container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Loading...</h1></div>";
+    //     try {
+    //         let response = await fetch("pages/home.html");
+    //         if (response.ok) {
+    //             let t = await response.text()
+    //             container.innerHTML = t;
+    //         }
+    //         else
+    //             container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Error - Failed URL!</h1></div>";
+    //     }
+    //     catch (response) {
+    //         container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Connection error</h1></div>";
+    //     };
+    // }
 
-    async function loadContactUs(event) {
-        event.preventDefault();
-        let url = event.target.href;
-        let container = document.querySelector("#use-ajax");
-        container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Loading...</h1></div>";
-        try {
-            let response = await fetch(url);
-            if (response.ok) {
-                let t = await response.text()
-                container.innerHTML = t;
-                cargaValidaciones();
-                cargaCaptcha();
-            }
-            else
-                container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Error - Failed URL!</h1></div>";
-        }
-        catch (response) {
-            container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Connection error</h1></div>";
-        };
-    }
+    // async function loadContactUs(event) {
+    //     event.preventDefault();
+    //     let url = event.target.href;
+    //     let container = document.querySelector("#use-ajax");
+    //     container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Loading...</h1></div>";
+    //     try {
+    //         let response = await fetch(url);
+    //         if (response.ok) {
+    //             let t = await response.text()
+    //             container.innerHTML = t;
+    //             cargaValidaciones();
+    //             cargaCaptcha();
+    //         }
+    //         else
+    //             container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Error - Failed URL!</h1></div>";
+    //     }
+    //     catch (response) {
+    //         container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Connection error</h1></div>";
+    //     };
+    // }
 
-    async function loadProducts(event) {
-        event.preventDefault();
-        let url = event.target.href;
-        let container = document.querySelector("#use-ajax");
-        container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Loading...</h1></div>";
-        try {
-            let response = await fetch(url);
-            if (response.ok) {
-                let t = await response.text()
-                container.innerHTML = t;
-                cargaFiltrarTabla();
-                cargaTablas();
-            }
-            else
-                container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Error - Failed URL!</h1></div>";
-        }
-        catch (response) {
-            container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Connection error</h1></div>";
-        };
-    }
+    // async function loadProducts(event) {
+    //     event.preventDefault();
+    //     let url = event.target.href;
+    //     let container = document.querySelector("#use-ajax");
+    //     container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Loading...</h1></div>";
+    //     try {
+    //         let response = await fetch(url);
+    //         if (response.ok) {
+    //             let t = await response.text()
+    //             container.innerHTML = t;
+    //             cargaFiltrarTabla();
+    //             cargaTablas();
+    //         }
+    //         else
+    //             container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Error - Failed URL!</h1></div>";
+    //     }
+    //     catch (response) {
+    //         container.innerHTML = "<div class='container-fluid bg-secondary loading'><h1>Connection error</h1></div>";
+    //     };
+    // }
 
-    document.querySelector("#indexPartial").addEventListener("click", loadIndex);
-    document.querySelector("#contactPartial").addEventListener("click", loadContactUs);
-    document.querySelector("#productsPartial").addEventListener("click", loadProducts);
+    // document.querySelector("#indexPartial").addEventListener("click", loadIndex);
+    // document.querySelector("#contactPartial").addEventListener("click", loadContactUs);
+    // document.querySelector("#productsPartial").addEventListener("click", loadProducts);
 
-    loadIndex();
+    // loadIndex();
 
 }
 document.addEventListener("DOMContentLoaded", cargaPartialRender);
