@@ -27,17 +27,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto linksNav">
                 <li class="nav-item">
-                    <a class="nav-link" id="indexPartial" href="#">HOME</a>
+                    <a class="nav-link" href="index">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="productsPartial" href="pages/products.html">PRODUCTOS</a>
+                    <a class="nav-link" href="products">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="contactPartial" href="pages/contactUs.html">CONTACTO</a>
+                    <a class="nav-link" href="contactUs">CONTACTO</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <!-- Fin de navBar -->
-    <div id="use-ajax">
-    </div>
