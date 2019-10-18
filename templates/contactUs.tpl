@@ -1,5 +1,8 @@
 {include file="header.tpl"}
+<<<<<<< HEAD
 
+=======
+>>>>>>> d296844b46de7863f0c076684527a797f744888d
 <div class="container-fluid contenedorPrincipal bg-secondary">
     <div class="text-Info bg-dark encabezado row">
         <div class="col-sm-5 col-lg-6 offset-lg-3 mt-2">
