@@ -1,9 +1,9 @@
 {include 'templates/header.tpl'}
 
 <div class="container">
-    <form action="verify" method="POST" class="col-md-4 offset-md-4 mt-4">
+    <form action="verificarLogin" method="POST" class="col-md-4 offset-md-4 mt-4">
         
-        <h1>{$titulo}</h1>
+        <h1>{$Titulo}</h1>
 
         <div class="form-group">
             <label>Usuario (email)</label>
@@ -14,14 +14,10 @@
             <label>Password</label>
             <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
-
-        {if $error}
-        <div class="alert alert-danger" role="alert">
-            {$error}
+        <div class = "">
+            <h1>{$Message}</h1>
         </div>
-        {/if}
-
-        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </div>
 

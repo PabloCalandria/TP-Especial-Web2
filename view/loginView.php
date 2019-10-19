@@ -2,7 +2,7 @@
 
 require_once('libs/Smarty.class.php');
 
-class LoginView {
+class loginView {
 
     private $smarty;
 
@@ -10,9 +10,10 @@ class LoginView {
         $this->smarty = new Smarty();
     }
     
-    public function showLogin($error = null) {
-        $this->smarty->assign('titulo', 'Iniciar Sesión');
-        $this->smarty->assign('error', $error);
+    public function mostrarLogin($message = '') {
+        $this->smarty->assign('Titulo', 'Ingresar');
+        $this->smarty->assign('Message', $message);
+
         $this->smarty->display('templates/login.tpl');
     }
 }

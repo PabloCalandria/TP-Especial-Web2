@@ -9,25 +9,29 @@ class loginController {
     private $model;
 
     public function __construct() {
-        $this->view = new LoginView();
-        $this->model = new UserModel();
+        $this->view = new loginView();
+        $this->model = new userModel();
     }
 
-    public function showLogin() {
-        $this->view->showLogin();
+    public function login() {
+        $this->view->mostrarLogin();
     }
+    
+    public function verificarLogin() {
+        var_dump("Asd");
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    public function verifyUser() {
-        $username = $_POST['usuario'];
-        $password = $_POST['contraseña'];
+        $user = $this->model->getUser($username);
 
-        $user = $this->model->getByUsername($username);
-
-        if (!empty($user) && password_verify($password, $user->password)) {
-            header('Location: ver');
-        } else {
-            $this->view->showLogin("Login incorrecto");
+        if(isset($user)){
+            if (password_verify($password,$user[0]["contraseña"])){
+                header('Location: homeView.php');
+            }else{
+                $this->view->mostrarLogin("Contraseña incorrecta");
+            }
+        }else{
+            $this->view->mostrarLogin("Login incorrecto");
         }
-       
     }
 }
