@@ -1,5 +1,4 @@
 {include file="header.tpl"}
-<<<<<<< HEAD
 
 <div class="row">
         <div class="py-3 bg-dark listaProductos offset-lg-1 col-sm-8 col-lg-4">
@@ -67,7 +66,4 @@
         </div>
     </div>
 
-=======
-test
->>>>>>> d296844b46de7863f0c076684527a797f744888d
 {include file="footer.tpl"}
