@@ -1,5 +1,9 @@
 <?php
     
+    define('HOME' , "Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    define('LOGIN' , "Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/login");
+    define('LOGOUT' , "Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/logout");
+
     require_once "controller/homeController.php";
     require_once "controller/productsController.php";
     require_once "controller/contactUsController.php";
@@ -23,6 +27,7 @@
             $controllerLogin->login();
         }elseif($partesURL[0] == "verificarLogin"){
             $controllerLogin->login();
-        }
-    }
-?>
+        }elseif($partesURL[0] == "logout"){
+            $controllerLogin->logout();
+        } 
+}
