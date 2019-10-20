@@ -16,9 +16,14 @@ class loginController {
     public function login() {
         $this->view->mostrarLogin();
     }
+
+    public function logout() {
+        session_start();
+        session_destroy();
+        header(LOGIN);
+    }
     
     public function verificarLogin() {
-        var_dump("Asd");
         $username = $_POST['username'];
         $password = $_POST['password'];
 
@@ -26,7 +31,9 @@ class loginController {
 
         if(isset($user)){
             if (password_verify($password,$user[0]["contraseña"])){
-                header('Location: homeView.php');
+                session_start();
+                $_SESSION["User"] = $username;
+                header(HOME);
             }else{
                 $this->view->mostrarLogin("Contraseña incorrecta");
             }
