@@ -22,22 +22,25 @@ class loginController {
         session_destroy();
         header(LOGIN);
     }
-    
+
     public function verificarLogin() {
-        $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $user = $this->model->getUser($username);
+        $user = $this->model->getUser($_POST['username']);
+        
+        echo $user->usuario;
+        echo $password;
+        echo $user->contraseña;
+        echo '/';
+        echo password_verify($password, $user->contraseña);
 
-        if(isset($user)){
-            if (password_verify($password,$user[0]["contraseña"])){
-                session_start();
-                $_SESSION["User"] = $username;
-                header(HOME);
-            }else{
-                $this->view->mostrarLogin("Contraseña incorrecta");
-            }
-        }else{
+        if (isset($user) && $user != null && password_verify($password, $user->contraseña)){
+            session_start();
+            $_SESSION['ID_USER'] = $user->id_usuario;
+            $_SESSION['USERNAME'] = $user->usuario;
+            header('Location: ' . HOME);
+        }
+        else{
             $this->view->mostrarLogin("Login incorrecto");
         }
     }
