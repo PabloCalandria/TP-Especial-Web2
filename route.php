@@ -1,8 +1,11 @@
 <?php
-    
-    define('HOME' , "Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-    define('LOGIN' , "Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/login");
-    define('LOGOUT' , "Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/logout");
+    // define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+    // define("LOGIN", BASE_URL . '/login');
+    // define("LOGOUT", BASE_URL . '/logout');
+    define('HOME' , "http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    define('LOGIN' , "http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/login");
+    define('LOGOUT' , "http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/logout");
+
 
     require_once "controller/homeController.php";
     require_once "controller/productsController.php";
@@ -14,6 +17,8 @@
     $controllerProducts = new productsController();
     $controllerContactUs = new contactUsController();
     $controllerLogin = new loginController();
+    if ($_GET['action'] == '')
+        $_GET['action'] = 'index';
 
     if ($partesURL[0] == "index"){
         $controllerHome->HomeView();   //sino viene ninguna accion, inicia la funcion del archivo about.php
@@ -26,7 +31,7 @@
         }elseif($partesURL[0] == "login"){
             $controllerLogin->login();
         }elseif($partesURL[0] == "verificarLogin"){
-            $controllerLogin->login();
+            $controllerLogin->verificarLogin();
         }elseif($partesURL[0] == "logout"){
             $controllerLogin->logout();
         } 
