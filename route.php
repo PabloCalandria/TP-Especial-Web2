@@ -1,40 +1,46 @@
 <?php
-    require_once "controller/homeController.php";
-    require_once "controller/loginController.php";
-    require_once "controller/productsController.php";
-    require_once "controller/contactUsController.php";
+    require_once ('controller/homeController.php');
+    require_once ('controller/loginController.php');
+    require_once ('controller/productsController.php');
+    require_once ('controller/contactUsController.php');
 
-    define('BASE_URL' , "http://".$_SERVER["SERVER_NAME"] .':'.$_SERVER["SERVER_PORT"]. dirname($_SERVER["PHP_SELF"]). "/");
+    define('BASE_URL' , "http://".$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]. dirname($_SERVER["PHP_SELF"]). "/");
     define('LOGIN' , BASE_URL . "login");
     define('LOGOUT' , BASE_URL . "logout");
 
-    $controllerHome = new HomeController();
-    $controllerLogin = new LoginController();
-    $controllerProducts = new ProductsController();
-    $controllerContactUs = new ContactUsController();
     
+    if ($_GET['action'] == '')
+        $_GET['action'] = 'home';
+
     $partesURL = explode("/", $_GET["action"]);
     switch ($partesURL[0]) {
         case 'login':
-            $controllerLogin->showLogin();
+            $controller = new LoginController();
+            $controller->showLogin();
             break;
         case 'verificarLogin':
-            $controllerLogin->verifyLogin();
+            $controller = new LoginController();
+            $controller->verifyLogin();
             break;
         case 'logout':
-            $controllerLogin->logout();
+            $controller = new LoginController();
+            $controller->logout();
             break;
-        case '':
-            $controllerHome->homeView();
+        case 'home':
+            $controller = new HomeController();
+            $controller->homeView();
             break;    
         case 'products':
-            $controllerProducts->productsView(); 
+            $controller = new ProductsController();
+            $controller->productsView(); 
             break;
         case 'contactUs':
-            $controllerContactUs->contactUsView();
+            $controller = new ContactUsController();
+            $controller->contactUsView();
             break;
         default:
             echo "<h1>Error 404 - Page not found </h1>";
             break;
     }
+
 ?>
