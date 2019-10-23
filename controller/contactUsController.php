@@ -1,19 +1,20 @@
 <?php
 
 require_once "./view/contactUsView.php";
-require_once "securedController.php";
+include_once('./helpers/authHelper.php');
 
-class contactUsController extends securedController{
+class ContactUsController{
     
     private $view;
 
     function __construct(){
-        parent::__construct();
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
         $this->view = new ContactUsView();
     }
     
-    function ContactUsView(){
-        $this->view->Mostrar();
+    function contactUsView(){
+        $this->view->mostrar();
     }
 }
 ?>

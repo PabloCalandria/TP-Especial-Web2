@@ -1,19 +1,20 @@
 <?php 
 
     require_once "./view/productsView.php";
-    require_once "securedController.php";
+    include_once('./helpers/authHelper.php');
 
-    class productsController extends securedController{
+    class ProductsController{
         
         private $view;
 
         function __construct(){
-            parent::__construct();
+            $authHelper = new AuthHelper();
+            $authHelper->checkLoggedIn();
             $this->view = new ProductsView();
         }
 
-        function ProductsView(){
-            $this->view->Mostrar();
+        function productsView(){
+            $this->view->mostrar();
         }
     }
 ?>

@@ -3,7 +3,7 @@
 
     class ProductsView{
         
-        function Mostrar(){
+        function mostrar(){
             $smarty= new Smarty();
             $smarty->display('templates/products.tpl');
         }
