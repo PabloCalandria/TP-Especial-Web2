@@ -3,10 +3,9 @@
 
     class ContactUsView{
         
-        function Mostrar(){
+        function mostrar(){
             $smarty = new Smarty(); 
             $smarty->display('templates/contactUs.tpl');
         }        
-    }
-    
+    }   
 ?>

@@ -1,22 +1,19 @@
 <?php
 
 require_once "./view/homeView.php";
-require_once "securedController.php";
+include_once('./helpers/authHelper.php');
 
-class homeController extends securedController{
-
-    //private $model;
+class HomeController{
     private $view;
 
 	function __construct(){
-        
-        parent::__construct();
-        //$this->model = new TareasModel();
-        $this->view = new homeView();
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
+        $this->view = new HomeView();
     }
     
-    function HomeView(){
-        $this->view->Mostrar();
+    function homeView(){
+        $this->view->mostrar();
     }
 }
 

@@ -7,17 +7,20 @@
                 
                 <h1>{$Titulo}</h1>
 
-        <div class="form-group">
-            <label>Usuario (email)</label>
-            <input type="email" name="username" id="username" class="form-control" placeholder="Ingrese email">
-        </div>
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese usuario">
+                </div>
 
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-        </div>
-        <div class = "">
-            <h1>{$Message}</h1>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Ingrese contraseña">
+                </div>
+                <div class = "">
+                    <h1>{$Message}</h1>
+                </div>
+                <button type="submit" class="btn btn-primary"> Login </button>
+            </form>
         </div>
     </article>
 </div>

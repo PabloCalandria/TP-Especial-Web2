@@ -1,47 +1,41 @@
 <?php
-
 include_once('./view/loginView.php');
 include_once('./model/userModel.php');
+include_once('./helpers/authHelper.php');
 
-class loginController {
+class LoginController {
 
     private $view;
     private $model;
+    private $authHelper;
 
     public function __construct() {
-        $this->view = new loginView();
-        $this->model = new userModel();
+        $this->view = new LoginView();
+        $this->model = new UserModel();
+        $this->authHelper= new AuthHelper();
     }
 
-    public function login() {
+    public function showLogin() {
         $this->view->mostrarLogin();
     }
 
-    public function logout() {
-        session_start();
-        session_destroy();
-        header(LOGIN);
-    }
-
-    public function verificarLogin() {
+    public function verifyLogin() {
+        $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $user = $this->model->getUser($_POST['username']);
-        
-        echo $user->usuario;
-        echo $password;
-        echo $user->contraseña;
-        echo '/';
-        echo password_verify($password, $user->contraseña);
+        $user = $this->model->getUser($username);
 
-        if (isset($user) && $user != null && password_verify($password, $user->contraseña)){
-            session_start();
-            $_SESSION['ID_USER'] = $user->id_usuario;
-            $_SESSION['USERNAME'] = $user->usuario;
-            header('Location: ' . HOME);
+        if (isset($user) && password_verify($password, $user->contraseña)){
+            $this->authHelper->login($user);
+            header('Location: '. BASE_URL);
         }
         else{
             $this->view->mostrarLogin("Login incorrecto");
         }
+    }
+
+    public function logout() {
+        $this->authHelper->logout();
+        header('Location: ' . LOGIN);
     }
 }
