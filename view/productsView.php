@@ -5,6 +5,7 @@
         
         function mostrar($lista){
             $smarty= new Smarty();
+            $smarty->assign('Login', isset($_SESSION));
             $smarty->assign('lista', $lista);
             $smarty->display('templates/products.tpl');
         }
