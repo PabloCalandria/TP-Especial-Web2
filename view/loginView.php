@@ -3,17 +3,11 @@
 require_once('libs/Smarty.class.php');
 
 class LoginView {
-
-    private $smarty;
-
-    public function __construct() {
-        $this->smarty = new Smarty();
-    }
     
     public function mostrarLogin($message = '') {
-        $this->smarty->assign('Titulo', 'Ingresar');
-        $this->smarty->assign('Message', $message);
-
-        $this->smarty->display('templates/login.tpl');
+        $smarty = new Smarty();
+        $smarty->assign('Message', $message);
+        $smarty->assign('Login', isset($_SESSION));
+        $smarty->display('templates/login.tpl');
     }
 }

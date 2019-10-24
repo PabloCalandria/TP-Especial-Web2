@@ -3,8 +3,10 @@
 
     class ProductsView{
         
-        function mostrar(){
+        function mostrar($lista){
             $smarty= new Smarty();
+            $smarty->assign('Login', isset($_SESSION));
+            $smarty->assign('Lista', $lista);
             $smarty->display('templates/products.tpl');
         }
     }

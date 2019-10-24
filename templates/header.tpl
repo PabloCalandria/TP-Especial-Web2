@@ -26,6 +26,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto linksNav">
+            {if !$Login}
+                <li class="nav-item">
+                    <a class="nav-link bg-dark" href="login">login</a>
+                </li>
+            {else}
                 <li class="nav-item">
                     <a class="nav-link" href="home">HOME</a>
                 </li>
@@ -35,6 +40,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contactUs">CONTACTO</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link bg-dark" href="logout">logout</a>
+                </li>
+            {/if}
             </ul>
         </div>
     </nav>
