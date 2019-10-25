@@ -22,10 +22,9 @@ class LoginController {
     public function verifyLogin() {
         $username = $_POST['username'];
         $password = $_POST['password'];
-
+        
         $user = $this->model->getUser($username);
-
-        if (isset($user) && password_verify($password, $user->contraseña)){
+        if (isset($user) && $user && password_verify($password, $user->contraseña)){
             $this->authHelper->login($user);
             header('Location: '. BASE_URL);
         }

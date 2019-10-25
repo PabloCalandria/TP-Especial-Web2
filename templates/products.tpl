@@ -1,33 +1,26 @@
 {include file="header.tpl"}
+
 <div class="container-fluid bg-secondary">
     <div class="row">
             <div class="py-3 bg-dark listaProductos offset-lg-1 col-sm-8 col-lg-4">
                 <ul>
-                    <li>
-                        <h1>Rubias</h1>
-                        <ul class="listaProductoElemento">
-                            <li>Kolsch</li>
-                            <li>Honey Beer</li>
-                            <li>Playa Grande</li>
-                            <li>Ipa</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h1>Rojas</h1>
-                        <ul class="listaProductoElemento">
-                            <li>Scotch</li>
-                            <li>Barley Wine</li>
-                            <li>Sudestada</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h1>Negras</h1>
-                        <ul class="listaProductoElemento">
-                            <li>Porter</li>
-                            <li>Cream Stout</li>
-                            <li>Imperial Stout</li>
-                        </ul>
-                    </li>
+                    {$titulo = null}
+                    {foreach $Lista as $item}
+                        <li>
+                            {if $item->nombreEstilo != $titulo}
+                                {$titulo = $item->nombreEstilo}
+                                <h1>{$item->nombreEstilo}</h1>
+                                {foreach $Lista as $cerveza}
+                                    <ul class="listaProductoElemento">
+                                        {if $item->id_estilo == $cerveza->id_estilo}
+                                            <td>{$cerveza->nombreCerveza}</td>
+                                            <td><a href='infoProduct/{$cerveza->id_cerveza}'>ver</a></td>
+                                        {/if}
+                                    </ul>
+                                {/foreach}
+                            {/if}
+                        </li>                        
+                    {/foreach}
                 </ul>
             </div>
             <div class="py-3 bg-dark col-lg-6 col-sm-8">
@@ -66,6 +59,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 {include file="footer.tpl"}

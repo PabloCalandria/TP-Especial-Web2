@@ -13,6 +13,9 @@
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"
         >
     <link rel="stylesheet" href="css/style.css"  type="text/css">
+    <script src="js/captcha.js"></script>
+    <script src="js/filtratTablaPorTitulo.js"></script>
+    <script src="js/validaciones.js"></script>
 </head>
 
 <body>

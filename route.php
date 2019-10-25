@@ -7,7 +7,6 @@
     define('BASE_URL' , "http://".$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]. dirname($_SERVER["PHP_SELF"]). "/");
     define('LOGIN' , BASE_URL . "login");
     define('LOGOUT' , BASE_URL . "logout");
-
     
     if ($_GET['action'] == '')
         $_GET['action'] = 'home';
@@ -37,6 +36,10 @@
         case 'contactUs':
             $controller = new ContactUsController();
             $controller->contactUsView();
+            break;
+        case 'infoProduct':
+            $controller = new ProductsController();
+            $controller->infoProduct($partesURL[1]); 
             break;
         default:
             echo "<h1>Error 404 - Page not found </h1>";
