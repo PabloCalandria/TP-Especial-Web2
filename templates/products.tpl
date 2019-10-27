@@ -62,4 +62,8 @@
 
 </div>
 
+{include file="formProduct.tpl"}
+
+{include file="formStyle.tpl"}
+
 {include file="footer.tpl"}

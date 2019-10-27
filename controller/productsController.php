@@ -25,5 +25,15 @@
             $product = $this->model->getProducto($id);
             $this->view->mostrarProducto($product);
         }
+
+        function addProduct(){
+            $estilo = $_POST['nombre_cerveza'];
+            $cont_alc = $_POST['cont_alc'];
+            $ibu = $_POST['ibu'];
+            $o_g = $_POST['o_g'];
+            $cerveza_estilo = $_POST['cerveza_estilo'];
+            $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo);
+            header('Location: ' . PRODUCTS);
+        }
     }
 ?>
