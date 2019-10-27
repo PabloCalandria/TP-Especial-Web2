@@ -19,4 +19,9 @@
             $sentencia->execute();
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
+
+        function deleteStyle($id){
+            $sentencia = $this->db->prepare('DELETE FROM estilo WHERE id_estilo=?');
+            $sentencia->execute(array($id));
+        }
     }

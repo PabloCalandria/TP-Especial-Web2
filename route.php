@@ -8,7 +8,7 @@
     define('BASE_URL' , "http://".$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]. dirname($_SERVER["PHP_SELF"]). "/");
     define('LOGIN' , BASE_URL . "login");
     define('LOGOUT' , BASE_URL . "logout");
-    define('PRODUCTS' , BASE_URL , "products");
+    define('PRODUCTS' , BASE_URL . "products");
     
     if ($_GET['action'] == '')
         $_GET['action'] = 'home';
@@ -50,6 +50,16 @@
         case 'infoProduct':
             $controller = new ProductsController();
             $controller->infoProduct($partesURL[1]); 
+            break;
+        case 'deleteProduct':
+            $controller = new ProductsController();
+            $controller->deleteProduct($partesURL[1]); 
+            break;
+        case 'deleteStyle':
+            $controllerS = new StyleController();
+            $controllerP = new ProductsController();
+            $controllerS->deleteStyle($partesURL[1]);
+            $controllerP->deleteProduct(deleteStyle($partesURL[1]));
             break;
         default:
             echo "<h1>Error 404 - Page not found </h1>";

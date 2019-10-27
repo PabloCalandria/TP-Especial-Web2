@@ -25,5 +25,9 @@
             $sentencia = $this->db->prepare('INSERT INTO cerveza(nombre,cont_alc,ibu,o_g,id_estilo) VALUES(?,?,?,?,?)');
             $sentencia->execute(array($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo));
         }
-        
+
+        function deleteProduct($id){
+            $sentencia = $this->db->prepare('DELETE FROM cerveza WHERE id_cerveza=?');
+            $sentencia->execute(array($id));
+        }
     }

@@ -24,7 +24,7 @@
         function infoProduct($id){
             $product = $this->model->getProducto($id);
             $this->view->mostrarProducto($product);
-        }
+            }
 
         function addProduct(){
             $estilo = $_POST['nombre_cerveza'];
@@ -33,6 +33,11 @@
             $o_g = $_POST['o_g'];
             $cerveza_estilo = $_POST['cerveza_estilo'];
             $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo);
+            header('Location: ' . PRODUCTS);
+        }
+
+        function deleteProduct($id){
+            $this->model->deleteProduct($id);
             header('Location: ' . PRODUCTS);
         }
     }
