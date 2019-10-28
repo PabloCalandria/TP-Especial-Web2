@@ -10,12 +10,14 @@
         }
         
         function mostrar($lista){
+            $this->smarty->assign('Context', explode("/", $_GET["action"]));
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Lista', $lista);
             $this->smarty->display('templates/products.tpl');
         }
 
         function mostrarProducto($product){
+            $this->smarty->assign('Context', explode("/", $_GET["action"]));
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Producto', $product);
             $this->smarty->display('templates/infoProduct.tpl');

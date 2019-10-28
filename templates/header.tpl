@@ -13,9 +13,10 @@
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"
         >
     <link rel="stylesheet" href="css/style.css"  type="text/css">
-    <script src="js/captcha.js"></script>
-    <script src="js/filtratTablaPorTitulo.js"></script>
-    <script src="js/validaciones.js"></script>
+    {if $Context == 'contactUs'}
+        <script src="js/captcha.js"></script>
+        <script src="js/validaciones.js"></script>
+    {/if}
 </head>
 
 <body>
@@ -31,7 +32,7 @@
             <ul class="navbar-nav ml-auto linksNav">
             {if !$Login}
                 <li class="nav-item">
-                    <a class="nav-link bg-dark" href="login">login</a>
+                    <a class="nav-link bg-dark" href="login">LOGIN</a>
                 </li>
             {else}
                 <li class="nav-item">
@@ -44,7 +45,7 @@
                     <a class="nav-link" href="contactUs">CONTACTO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link bg-dark" href="logout">logout</a>
+                    <a class="nav-link bg-dark" href="logout">LOGOUT</a>
                 </li>
             {/if}
             </ul>

@@ -1,5 +1,5 @@
 
-{include file="headerRegistrarse.tpl"}
+{include file="templates/header.tpl"}
 
 <form action="agregarUser" method="POST" class="table-bordered table-dark">
   <div class="form-group">
@@ -11,4 +11,4 @@
   <button type="submit" class="btn btn-primary">Aceptar</button>
 </form>
 
-{include file="footer.tpl"}
+{include file="templates/footer.tpl"}

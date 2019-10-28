@@ -1,4 +1,4 @@
-{include file='header.tpl'}
+{include file='templates/header.tpl'}
 
 <table class="table table-bordered table-dark">
         <tr class="">
@@ -24,4 +24,4 @@
         </tfoot> 
 </table>
 
-{include file='footer.tpl'}
+{include file='templates/footer.tpl'}
