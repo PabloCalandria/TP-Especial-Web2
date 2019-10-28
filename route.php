@@ -59,7 +59,6 @@
             break;
         case 'deleteStyle':
             $controllerS = new StyleController();
-            $controllerP = new ProductsController();
             $controllerS->deleteStyle($partesURL[1]);
             break;
         case 'registrarse':
@@ -69,6 +68,11 @@
         case 'agregarUser':
             $controller = new LoginController();
             $controller->registrarUser();
+            break;
+        case 'editarProduct':
+            $controller = new ProductsController();
+            $controller->editProduct($partesURL[1]);
+            break;
         default:
             echo "<h1>Error 404 - Page not found </h1>";
             break;

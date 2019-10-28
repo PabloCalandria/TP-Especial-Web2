@@ -31,4 +31,9 @@
             $sentencia = $this->db->prepare('DELETE FROM cerveza WHERE id_cerveza=?');
             $sentencia->execute(array($id));
         }
+
+        function editarProduct($cont_alc,$ibu,$o_g,$id){
+            $sentencia = $this->db->prepare('UPDATE cerveza SET cont_alc=?, ibu=?, o_g=? WHERE id_cerveza=?');
+            $sentencia->execute(array($cont_alc,$ibu,$o_g,$id));
+        }
     }
