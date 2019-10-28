@@ -3,17 +3,28 @@
     require_once ('controller/loginController.php');
     require_once ('controller/productsController.php');
     require_once ('controller/contactUsController.php');
+    require_once ('controller/styleController.php');
 
     define('BASE_URL' , "http://".$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]. dirname($_SERVER["PHP_SELF"]). "/");
     define('LOGIN' , BASE_URL . "login");
     define('LOGOUT' , BASE_URL . "logout");
-
-    
-    if ($_GET['action'] == '')
-        $_GET['action'] = 'home';
+    define('PRODUCTS' , BASE_URL . "products");
 
     $partesURL = explode("/", $_GET["action"]);
+    
     switch ($partesURL[0]) {
+        case '':
+            $controller = new homeController();
+            $controller->homeView();
+            break;
+        case 'agregarProduct':
+            $controller = new ProductsController();
+            $controller->addProduct(); 
+            break;
+        case 'agregarStyle':
+            $controller = new StyleController();
+            $controller->addStyle(); 
+            break;
         case 'login':
             $controller = new LoginController();
             $controller->showLogin();
@@ -38,6 +49,26 @@
             $controller = new ContactUsController();
             $controller->contactUsView();
             break;
+        case 'infoProduct':
+            $controller = new ProductsController();
+            $controller->infoProduct($partesURL[1]); 
+            break;
+        case 'deleteProduct':
+            $controller = new ProductsController();
+            $controller->deleteProduct($partesURL[1]); 
+            break;
+        case 'deleteStyle':
+            $controllerS = new StyleController();
+            $controllerP = new ProductsController();
+            $controllerS->deleteStyle($partesURL[1]);
+            break;
+        case 'registrarse':
+            $controller = new LoginController();
+            $controller->viewRegistro();
+            break;
+        case 'agregarUser':
+            $controller = new LoginController();
+            $controller->registrarUser();
         default:
             echo "<h1>Error 404 - Page not found </h1>";
             break;

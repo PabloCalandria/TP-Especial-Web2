@@ -1,7 +1,7 @@
 <?php
     require_once 'libs/Smarty.class.php';
 
-    class ProductsView{
+    class StyleView{
 
         private $smarty;
 
@@ -13,12 +13,6 @@
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Lista', $lista);
             $this->smarty->display('templates/products.tpl');
-        }
-
-        function mostrarProducto($product){
-            $this->smarty->assign('Login', isset($_SESSION));
-            $this->smarty->assign('Producto', $product);
-            $this->smarty->display('templates/infoProduct.tpl');
         }
     }
 

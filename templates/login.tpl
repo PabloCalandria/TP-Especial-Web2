@@ -8,7 +8,6 @@
                     <label>Usuario</label>
                     <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese usuario">
                 </div>
-
                 <div class="form-group">
                     <label>Contraseña</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Ingrese contraseña">
@@ -17,6 +16,9 @@
                     <label>{$Message}</label>
                 </div>
                 <button type="submit" class="btn btn-primary"> Login </button>
+            </form>
+            <form action="registrarse" method="POST" class="col-md-4 offset-md-4 mt-4">
+                <button type="submit" class="btn btn-primary"> Registrarse </button>
             </form>
         </div>
     </article>
