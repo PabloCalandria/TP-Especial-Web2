@@ -37,4 +37,16 @@ class LoginController {
         $this->authHelper->logout();
         header('Location: ' . LOGIN);
     }
+
+    function viewRegistro(){
+        $this->view->formularioIngresar();
+    }
+
+    function registrarUser(){
+        $user = $_POST['newUser'];
+        $password = $_POST['newPass'];
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $this->model->registrar($user,$hash);
+        header('Location: ' . LOGIN);
+    }
 }

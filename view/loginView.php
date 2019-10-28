@@ -10,4 +10,9 @@ class LoginView {
         $smarty->assign('Login', isset($_SESSION));
         $smarty->display('templates/login.tpl');
     }
+
+    function formularioIngresar(){
+        $smarty = new Smarty();
+        $smarty->display('templates/formRegistrarse.tpl');
+    }
 }

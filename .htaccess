@@ -6,4 +6,5 @@
     RewriteRule \.(?:css|js|jpe?g|gif|png|otf|ttf|ico|jpg)$ - [L]
 
     RewriteRule ^(.*)$ route.php?action=$1 [QSA,L]
+
 </IfModule>

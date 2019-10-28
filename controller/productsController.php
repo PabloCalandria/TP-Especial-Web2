@@ -24,7 +24,7 @@
         function infoProduct($id){
             $product = $this->model->getProducto($id);
             $this->view->mostrarProducto($product);
-            }
+        }
 
         function addProduct(){
             $estilo = $_POST['nombre_cerveza'];

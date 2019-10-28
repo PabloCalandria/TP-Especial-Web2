@@ -15,4 +15,8 @@ class userModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
+    function registrar($user,$hash){
+        $sentencia = $this->db->prepare('INSERT INTO user(usuario,contraseña) VALUES (?,?)');
+        $sentencia->execute(array($user,$hash));
+    }
 }

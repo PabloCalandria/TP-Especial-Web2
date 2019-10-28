@@ -23,11 +23,6 @@
             header('Location: ' . PRODUCTS);    
         }
 
-        function styleView(){
-            $lista = $this->model->getLista();
-            $this->view->mostrar($lista);
-        }
-
         function deleteStyle($id){
             $this->model->deleteStyle($id);
             header('Location: ' . PRODUCTS);

@@ -1,6 +1,6 @@
 {include file='header.tpl'}
 
-<table class="table table-bordered table-dark" id="tablaCargada">
+<table class="table table-bordered table-dark">
         <tr class="">
             <th scope="col">Cont. Alc.</th>
             <th scope="col">Ibu</th>

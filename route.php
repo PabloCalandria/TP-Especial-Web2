@@ -9,12 +9,14 @@
     define('LOGIN' , BASE_URL . "login");
     define('LOGOUT' , BASE_URL . "logout");
     define('PRODUCTS' , BASE_URL . "products");
-    
-    if ($_GET['action'] == '')
-        $_GET['action'] = 'home';
 
     $partesURL = explode("/", $_GET["action"]);
+    
     switch ($partesURL[0]) {
+        case '':
+            $controller = new homeController();
+            $controller->homeView();
+            break;
         case 'agregarProduct':
             $controller = new ProductsController();
             $controller->addProduct(); 
@@ -59,8 +61,14 @@
             $controllerS = new StyleController();
             $controllerP = new ProductsController();
             $controllerS->deleteStyle($partesURL[1]);
-            $controllerP->deleteProduct(deleteStyle($partesURL[1]));
             break;
+        case 'registrarse':
+            $controller = new LoginController();
+            $controller->viewRegistro();
+            break;
+        case 'agregarUser':
+            $controller = new LoginController();
+            $controller->registrarUser();
         default:
             echo "<h1>Error 404 - Page not found </h1>";
             break;
