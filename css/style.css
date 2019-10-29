@@ -103,7 +103,13 @@ a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):hover {
     color: #FFF; 
     text-decoration: none; 
 }
+
 .link-unstyled:hover{ 
     color: rgb(189, 142, 23); 
     text-decoration: none; 
+}
+
+hr{ 
+    border: 1px solid #FFF;
+    border-radius:2px;
 }

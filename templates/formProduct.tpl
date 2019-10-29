@@ -1,24 +1,27 @@
 <form action="agregarProduct" method="post" class="table-bordered table-dark">
-  <div class="form-group">
-    <input type="text" class="form-control" name="nombre_cerveza" id="exampleInputEmail1" placeholder="cerveza">
+  <h1 class="text-center tituloTabla"> Agregar una cerveza </h1>
+  <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    <input type="text" class="form-control" name="nombre_cerveza" placeholder="cerveza">
   </div>
-  <div class="form-group">
-    <input type="number" class="form-control" name="cont_alc" id="exampleInputEmail1" placeholder="contenido alcoholico">
+  <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    <input type="number" class="form-control" name="cont_alc" placeholder="contenido alcoholico">
   </div>
-  <div class="form-group">
-    <input type="number" class="form-control" name="ibu" id="exampleInputEmail1" placeholder="ibu">
+  <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    <input type="number" class="form-control" name="ibu" placeholder="ibu">
   </div>
-  <div class="form-group">
-    <input type="number" class="form-control" name="o_g" id="exampleInputEmail1" placeholder="O.G.">
+  <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    <input type="number" class="form-control" name="o_g" placeholder="O.G.">
   </div>
-  <div class="form-group">
-    <input type="number" class="form-control" name="cerveza_estilo" id="exampleInputEmail1" placeholder="estilo">
+  <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    <select  name="cerveza_estilo" class="form-control">
+      <option selected disabled hidden>Elija un estilo</option>
+        {foreach $Estilos as $info}
+            <option value="{$info->id_estilo}">{$info->nombre}</option>
+        {/foreach}
+    </select>
   </div>
-  <select>
-      {foreach $Producto as $info}
-          <opcion>{$info->nombre_cerveza}</opcion>
-      {/foreach}
-  </select>
-  <button type="submit" class="btn btn-primary">Agregar Cerveza</button>
+  <div class="text-center col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    <button type="submit" class=" text-center btn btn-primary">Agregar Cerveza</button>
+  </div>
 </form>
 

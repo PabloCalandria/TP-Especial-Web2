@@ -20,7 +20,7 @@
         </tr>
 </table>
 
-<div class="conteiner-fluid">
+<div class="container-fluid">
 <div class="py-5 offset-4 col-lg-4">
 <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
     <div class="form-group">

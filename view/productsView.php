@@ -9,7 +9,7 @@
             $this->smarty = new Smarty();
         }
         
-        function mostrar($lista,$style, $admin){
+        function mostrar($lista, $style, $admin){
             $this->smarty->assign('Context', explode("/", $_GET["action"]));
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('admin', $admin);
