@@ -30,6 +30,12 @@
                         </li>                        
                     {/foreach}
                 </ul>
+                <div class="listaProductoElemento">
+                    <h1>ESTILOS</h1>
+                    {foreach $Estilos as $item}
+                        <h2>{$item->nombre}<a> / </a><a href='deleteStyle/{$item->id_estilo}'>borrar</a></h2>
+                    {/foreach}
+                </div>
             </div>
             <div class="py-3 bg-dark col-lg-6 col-sm-8">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

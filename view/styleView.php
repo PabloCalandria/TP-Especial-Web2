@@ -15,6 +15,13 @@
             $this->smarty->assign('Lista', $lista);
             $this->smarty->display('templates/products.tpl');
         }
+
+        function mostrarStyle($style){
+            $this->smarty->assign('Context', explode("/", $_GET["action"]));
+            $this->smarty->assign('Login', isset($_SESSION));
+            $this->smarty->assign('Estilos', $style);
+            $this->smarty->display('templates/products.tpl');
+        }
     }
 
 ?>

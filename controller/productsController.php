@@ -22,7 +22,8 @@
         function productsView(){
             $lista = $this->model->getLista();
             $admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
-            $this->view->mostrar($lista, $admin);
+            $styles = $this->model->getStyles();
+            $this->view->mostrar($lista, $styles,$admin);
         }
 
         function infoProduct($id){
@@ -35,7 +36,7 @@
             $cont_alc = $_POST['cont_alc'];
             $ibu = $_POST['ibu'];
             $o_g = $_POST['o_g'];
-            $cerveza_estilo = $_POST['cerveza_estilo'];
+            //$cerveza_estilo = $_POST['cerveza_estilo'];
             $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo);
             header('Location: ' . PRODUCTS);
         }
@@ -43,6 +44,15 @@
         function deleteProduct($id){
             $this->model->deleteProduct($id);
             header('Location: ' . PRODUCTS);
+        }
+
+        function editProduct($id){
+            $cont_alc = $_POST['cont_alc'];
+            $ibu = $_POST['ibu'];
+            $o_g = $_POST['o_g'];
+            $this->model->editarProduct($cont_alc,$ibu,$o_g,$id);
+            $product = $this->model->getProducto($id);
+            $this->view->mostrarProducto($product);
         }
     }
 ?>

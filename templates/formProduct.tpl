@@ -14,6 +14,11 @@
   <div class="form-group">
     <input type="number" class="form-control" name="cerveza_estilo" id="exampleInputEmail1" placeholder="estilo">
   </div>
+  <select>
+      {foreach $Producto as $info}
+          <opcion>{$info->nombre_cerveza}</opcion>
+      {/foreach}
+  </select>
   <button type="submit" class="btn btn-primary">Agregar Cerveza</button>
 </form>
 
