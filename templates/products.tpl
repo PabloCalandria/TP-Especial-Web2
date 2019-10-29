@@ -27,6 +27,7 @@
                     </li>                        
                 {/foreach}
                 {if $admin}
+                    <hr></hr>
                     <li>
                     <h1>ESTILOS</h1>
                         <ul class="listaProductoElemento">
