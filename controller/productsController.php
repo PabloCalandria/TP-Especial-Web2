@@ -2,23 +2,27 @@
 
     require_once "./view/productsView.php";
     require_once "./model/productsModel.php";
+    require_once "./model/userModel.php";
     include_once('./helpers/authHelper.php');
 
     class ProductsController{
         
         private $view;
         private $model;
+        private $modelUser;
 
         function __construct(){
             $authHelper = new AuthHelper();
             $authHelper->checkLoggedIn();
             $this->model = new ProductsModel();
             $this->view = new ProductsView();
+            $this->modelUser = new UserModel();
         }
-
+        
         function productsView(){
             $lista = $this->model->getLista();
-            $this->view->mostrar($lista);
+            $admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
+            $this->view->mostrar($lista, $admin);
         }
 
         function infoProduct($id){

@@ -9,14 +9,20 @@
                         <li>
                             {if $item->nombreEstilo != $titulo}
                                 {$titulo = $item->nombreEstilo}
-                                <h1>{$item->nombreEstilo}<a> / </a><a href='deleteStyle/{$item->id_estilo}'>borrar</a></h1>
+                                <h1>{$item->nombreEstilo}
+                                    {if $admin}
+                                        <a> / </a><a href='deleteStyle/{$item->id_estilo}'>Borrar</a>
+                                    {/if}
+                                </h1>
+
                                 {foreach $Lista as $cerveza}
                                     <ul class="listaProductoElemento">
                                         {if $item->id_estilo == $cerveza->id_estilo}
-                                            <td>{$cerveza->nombreCerveza}</td>
-                                            <td><a href='infoProduct/{$cerveza->id_cerveza}'>ver</a></td>
-                                            <td><a> / </a></td>
-                                            <td><a href='deleteProduct/{$cerveza->id_cerveza}'>borrar</a></td>
+                                            <td ><a class="link-unstyled" href='infoProduct/{$cerveza->id_cerveza}'>{$cerveza->nombreCerveza}</a></td>
+                                            {if $admin}
+                                                <td><a> / </a></td>
+                                                <td><a href='deleteProduct/{$cerveza->id_cerveza}'>Borrar</a></td>
+                                            {/if}
                                         {/if}
                                     </ul>
                                 {/foreach}
@@ -64,8 +70,9 @@
 
 </div>
 
-{include file="formProduct.tpl"}
-
-{include file="formStyle.tpl"}
+{if $admin}
+    {include file="formProduct.tpl"}
+    {include file="formStyle.tpl"}
+{/if}
 
 {include file="footer.tpl"}

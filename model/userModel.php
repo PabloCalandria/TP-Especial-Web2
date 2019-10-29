@@ -15,6 +15,13 @@ class userModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
+    public function adminUser($username) {
+        $query = $this->db->prepare('SELECT * FROM user WHERE usuario = ? AND admin = ?');
+        $query->execute(array($username, 1));
+
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
     function registrar($user,$hash){
         $sentencia = $this->db->prepare('INSERT INTO user(usuario,contraseña) VALUES (?,?)');
         $sentencia->execute(array($user,$hash));
