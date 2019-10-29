@@ -9,6 +9,7 @@
     define('LOGIN' , BASE_URL . "login");
     define('LOGOUT' , BASE_URL . "logout");
     define('PRODUCTS' , BASE_URL . "products");
+    define('REGISTRARSE' , BASE_URL . "registrarse");
 
     $partesURL = explode("/", $_GET["action"]);
     
