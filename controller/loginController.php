@@ -43,9 +43,9 @@ class LoginController {
     }
 
     function registrarUser(){
+        $user = $_POST['newUser'];
+        $password = $_POST['newPass'];
         if((isset($user)) && (isset($password))){
-            $user = $_POST['newUser'];
-            $password = $_POST['newPass'];
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $this->model->registrar($user,$hash);
             header('Location: ' . LOGIN);

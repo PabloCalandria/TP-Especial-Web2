@@ -42,6 +42,9 @@
                     <a class="nav-link" href="http://localhost/Web2/TPEspecial1/products">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/usuarios">USUARIOS</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="http://localhost/Web2/TPEspecial1/contactUs">CONTACTO</a>
                 </li>
                 <li class="nav-item">

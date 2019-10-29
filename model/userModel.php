@@ -1,6 +1,6 @@
 <?php
 
-class userModel {
+class UserModel {
 
     private $db;
 
@@ -25,5 +25,21 @@ class userModel {
     function registrar($user,$hash){
         $sentencia = $this->db->prepare('INSERT INTO user(usuario,contraseña) VALUES (?,?)');
         $sentencia->execute(array($user,$hash));
+    }
+
+    function getUsers(){
+        $query = $this->db->prepare('SELECT * FROM user');
+        $query->execute(array());
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    function modificarAdmin($id){
+        $sentencia = $this->db->prepare('UPDATE user SET admin=? WHERE id_usuario=? ');
+        $sentencia->execute(array(1,$id));
+    }
+
+    function borrarUsuario($id){
+        $sentencia = $this->db->prepare('DELETE FROM user WHERE id_usuario=? ');
+        $sentencia->execute(array($id));
     }
 }

@@ -4,12 +4,14 @@
     require_once ('controller/productsController.php');
     require_once ('controller/contactUsController.php');
     require_once ('controller/styleController.php');
+    require_once ('controller/userController.php');
 
     define('BASE_URL' , "http://".$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]. dirname($_SERVER["PHP_SELF"]). "/");
     define('LOGIN' , BASE_URL . "login");
     define('LOGOUT' , BASE_URL . "logout");
     define('PRODUCTS' , BASE_URL . "products");
     define('REGISTRARSE' , BASE_URL . "registrarse");
+    define('USUARIOS' , BASE_URL . "usuarios");
 
     $partesURL = explode("/", $_GET["action"]);
     
@@ -17,6 +19,18 @@
         case '':
             $controller = new homeController();
             $controller->homeView();
+            break;
+        case 'usuarios':
+            $controller = new UserController();
+            $controller->userView();
+            break;
+        /*case 'deleteUser':
+            $controller = new UserController();
+            $controller->deleteUser($partesURL[1]);
+            break;*/
+        case 'darAdmin':
+            $controller = new UserController();
+            $controller->darAdmin($partesURL[1]);
             break;
         case 'agregarProduct':
             $controller = new ProductsController();
@@ -45,10 +59,6 @@
         case 'products':
             $controllerP = new ProductsController();
             $controllerP->productsView();
-            break;
-        case 'products':
-            $controller = new ProductsController();
-            $controller->productsView(); 
             break;
         case 'contactUs':
             $controller = new ContactUsController();

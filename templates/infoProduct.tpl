@@ -8,22 +8,20 @@
                     <th scope="col">Cont. Alc.</th>
                     <th scope="col">Ibu</th>
                     <th scope="col">O.G.</th>
+                    <th scope="col">Estilo</th>
                 </tr>
                 <tr>
-                {$id = null}
                 {foreach $Producto as $info}
                         <td>{$info->cont_alc}</td>
                         <td>{$info->ibu}</td>
                         <td>{$info->o_g}</td>
-                        {if $id == null}
-                            {$id = $info->id_cerveza} 
-                        {/if}
+                        <td>{$info->nombreEstilo}</td>
                 {/foreach}
                 </tr>
         </table>
     </div>
     {if $admin}
-        <div class="py-5 offset-1 col-lg-9 bg-dark">
+        <div class="py-5 offset-1 col-lg-10 bg-dark">
             <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
                 <div class="form-group">
                     <input type="number" class="form-control" name="cont_alc" placeholder="Contenido alcoholico">

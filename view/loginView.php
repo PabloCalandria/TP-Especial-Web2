@@ -18,4 +18,6 @@ class LoginView {
         $smarty->assign('Login', isset($_SESSION));
         $smarty->display('templates/formRegistrarse.tpl');
     }
+
+    
 }

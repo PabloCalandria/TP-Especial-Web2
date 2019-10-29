@@ -24,9 +24,11 @@
         }
 
         function getProducto($id){
-            $sentencia = $this->db->prepare('SELECT * FROM cerveza WHERE id_cerveza=?');
+            $sentencia = $this->db->prepare('SELECT cont_alc, ibu, o_g, estilo.nombre 
+                    AS nombreEstilo from estilo inner join cerveza 
+                    on cerveza.id_estilo = estilo.id_estilo WHERE id_cerveza = ?');
             $sentencia->execute(array($id));
-            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $sentencia->fetchAll(PDO::FETCH_OBJ); 
         }
 
         function addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo){
