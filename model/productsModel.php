@@ -9,9 +9,16 @@
         }
 
         function getLista(){
-            $sentencia = $this->db->prepare('SELECT cerveza.id_cerveza, estilo.id_estilo, cerveza.id_estilo, 
-                        estilo.nombre AS nombreEstilo, cerveza.nombre AS nombreCerveza
-                        from estilo inner join cerveza on cerveza.id_estilo = estilo.id_estilo order by estilo.id_estilo');
+            $sentencia = $this->db->prepare('SELECT cerveza.id_cerveza, estilo.id_estilo, 
+                        cerveza.id_estilo, estilo.nombre AS nombreEstilo, cerveza.nombre 
+                        AS nombreCerveza from estilo inner join cerveza 
+                        on cerveza.id_estilo = estilo.id_estilo order by estilo.id_estilo');
+            $sentencia->execute();
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
+
+        function getStyles(){
+            $sentencia = $this->db->prepare('SELECT * FROM estilo');
             $sentencia->execute();
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }

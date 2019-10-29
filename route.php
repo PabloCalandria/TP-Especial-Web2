@@ -42,6 +42,10 @@
             $controller->homeView();
             break;    
         case 'products':
+            $controllerP = new ProductsController();
+            $controllerP->productsView();
+            break;
+        case 'products':
             $controller = new ProductsController();
             $controller->productsView(); 
             break;

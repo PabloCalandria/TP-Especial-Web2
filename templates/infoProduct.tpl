@@ -6,7 +6,6 @@
             <th scope="col">Cont. Alc.</th>
             <th scope="col">Ibu</th>
             <th scope="col">O.G.</th>
-            <th></th>
         </tr>
         <tr>
         {$id = null}
@@ -19,20 +18,23 @@
                 {/if}
         {/foreach}
         </tr>
-        <tfoot>
-            <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
-                <div class="form-group">
-                    <input type="number" class="form-control" name="cont_alc" placeholder="cont_alc">
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" name="ibu" placeholder="ibu">
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" name="o_g" placeholder="o_g">
-                </div>
-                <button type="submit" class="btn btn-primary">Editar</button>
-            </form>
-        </tfoot> 
 </table>
+
+<div class="conteiner-fluid">
+<div class="py-5 offset-4 col-lg-4">
+<form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
+    <div class="form-group">
+        <input type="number" class="form-control" name="cont_alc" placeholder="cont_alc">
+    </div>
+    <div class="form-group">
+        <input type="number" class="form-control" name="ibu" placeholder="ibu">
+    </div>
+    <div class="form-group">
+        <input type="number" class="form-control" name="o_g" placeholder="o_g">
+    </div>
+    <button type="submit" class="btn btn-primary">Editar</button>
+</form>
+</div>
+</div>
 
 {include file='templates/footer.tpl'}

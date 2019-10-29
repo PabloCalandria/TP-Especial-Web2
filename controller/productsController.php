@@ -18,7 +18,8 @@
 
         function productsView(){
             $lista = $this->model->getLista();
-            $this->view->mostrar($lista);
+            $styles = $this->model->getStyles();
+            $this->view->mostrar($lista, $styles);
         }
 
         function infoProduct($id){
