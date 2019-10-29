@@ -27,8 +27,9 @@
         }
 
         function infoProduct($id){
+            $admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
             $product = $this->model->getProducto($id);
-            $this->view->mostrarProducto($product);
+            $this->view->mostrarProducto($product, $admin);
         }
 
         function addProduct(){
