@@ -2,7 +2,7 @@
 
 <div class="container-fluid bg-secondary">
 
-    <div class="row py-5 offset-2 col-lg-8 bg-dark">
+    <div class="row py-5 offset-1 col-lg-9 bg-dark">
         <table class="table table-bordered table-dark">
                 <tr class="">
                     <th scope="col">Cont. Alc.</th>
@@ -23,7 +23,7 @@
         </table>
     </div>
 
-    <div class="py-5 offset-2 col-lg-8 bg-dark">
+    <div class="py-5 offset-1 col-lg-9 bg-dark">
         <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
             <div class="form-group">
                 <input type="number" class="form-control" name="cont_alc" placeholder="cont_alc">
