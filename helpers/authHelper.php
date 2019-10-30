@@ -8,6 +8,7 @@
             session_start();
             $_SESSION['ID_USER'] = $user->id_usuario;
             $_SESSION['USERNAME'] = $user->usuario;
+            $_SESSION['ADMIN'] = $user->admin;
         }
     
         public function logout() {

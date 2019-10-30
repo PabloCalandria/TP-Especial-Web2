@@ -2,6 +2,7 @@
 
     require_once "./model/userModel.php";
     require_once "./view/userView.php";
+    include_once('./helpers/authHelper.php');
 
     class UserController{
 
