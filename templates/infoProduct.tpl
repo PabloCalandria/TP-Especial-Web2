@@ -11,11 +11,13 @@
                     <th scope="col">Estilo</th>
                 </tr>
                 <tr>
+                {$id = null}
                 {foreach $Producto as $info}
                         <td>{$info->cont_alc}</td>
                         <td>{$info->ibu}</td>
                         <td>{$info->o_g}</td>
                         <td>{$info->nombreEstilo}</td>
+                        {$id = $info->id_cerveza}
                 {/foreach}
                 </tr>
         </table>
