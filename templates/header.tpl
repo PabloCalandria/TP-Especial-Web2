@@ -32,22 +32,22 @@
             <ul class="navbar-nav ml-auto linksNav">
             {if !$Login}
                 <li class="nav-item">
-                    <a class="nav-link bg-dark" href="http://localhost/Web2/TPEspecial1/login">ADMIN</a>
+                    <a class="nav-link bg-dark" href="http://localhost/Web2/TPEspecial1/login">LOGIN</a>
                 </li>
-            {/if}
-            {*{else}*}
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Web2/TPEspecial1/home">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Web2/TPEspecial1/products">PRODUCTOS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Web2/TPEspecial1/contactUs">CONTACTO</a>
-            </li>
-            {if $Login}
+            {else}
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/usuarios">USUARIOS</a>
+                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/home">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/products">PRODUCTOS</a>
+                </li>
+                {if $Admin == 1}
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/Web2/TPEspecial1/usuarios">USUARIOS</a>
+                    </li>
+                {/if}   
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/contactUs">CONTACTO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link bg-dark" href="http://localhost/Web2/TPEspecial1/logout">LOGOUT</a>

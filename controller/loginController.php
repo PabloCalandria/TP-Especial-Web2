@@ -12,15 +12,14 @@ class LoginController {
     public function __construct() {
         $this->view = new LoginView();
         $this->model = new UserModel();
+        $this->authHelper= new AuthHelper();
     }
 
     public function showLogin() {
-        $this->authHelper= new AuthHelper();
         $this->view->mostrarLogin();
     }
 
     public function verifyLogin() {
-        $this->authHelper= new AuthHelper();
         $username = $_POST['username'];
         $password = $_POST['password'];
         
@@ -35,7 +34,6 @@ class LoginController {
     }
 
     public function logout() {
-        $this->authHelper= new AuthHelper();
         $this->authHelper->logout();
         header('Location: ' . LOGIN);
     }
@@ -45,9 +43,9 @@ class LoginController {
     }
 
     function registrarUser(){
-        $user = $_POST['newUser'];
-        $password = $_POST['newPass'];
         if((isset($user)) && (isset($password))){
+            $user = $_POST['newUser'];
+            $password = $_POST['newPass'];
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $this->model->registrar($user,$hash);
             header('Location: ' . LOGIN);

@@ -11,19 +11,16 @@
                     <th scope="col">Estilo</th>
                 </tr>
                 <tr>
-                {$id = null}
                 {foreach $Producto as $info}
                         <td>{$info->cont_alc}</td>
                         <td>{$info->ibu}</td>
                         <td>{$info->o_g}</td>
                         <td>{$info->nombreEstilo}</td>
-                        {$id = $info->id_cerveza}
                 {/foreach}
                 </tr>
         </table>
     </div>
-    {*{if $admin}*}
-    {if $Login}
+    {if $admin}
         <div class="py-5 offset-1 col-lg-10 bg-dark">
             <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
                 <div class="form-group">
@@ -39,7 +36,6 @@
             </form>
         </div>
     {/if}
-    {*{/if}*}
 
 </div>
 
