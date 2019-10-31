@@ -11,8 +11,8 @@
         private $view;
 
         function __construct(){
-            $authHelper = new AuthHelper();
-            $authHelper->checkLoggedIn();
+            //$authHelper = new AuthHelper();
+            //$authHelper->checkLoggedIn();
             $this->model = new StyleModel();
             $this->view = new StyleView();
         }

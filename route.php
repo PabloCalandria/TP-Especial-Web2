@@ -76,10 +76,6 @@
             $controllerS = new StyleController();
             $controllerS->deleteStyle($partesURL[1]);
             break;
-        case 'registrarse':
-            $controller = new LoginController();
-            $controller->viewRegistro();
-            break;
         case 'agregarUser':
             $controller = new LoginController();
             $controller->registrarUser();

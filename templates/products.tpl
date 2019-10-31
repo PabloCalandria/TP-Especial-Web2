@@ -15,9 +15,11 @@
                                 <ul class="listaProductoElemento">
                                     {if $item->id_estilo == $cerveza->id_estilo}
                                         <li><a class="link-unstyled" href='infoProduct/{$cerveza->id_cerveza}'>{$cerveza->nombreCerveza}</a>
-                                        {if $admin}
+                                        {*{if $admin}*}
+                                        {if isset($Admin)}
                                             <a> / </a>
                                             <a href='deleteProduct/{$cerveza->id_cerveza}'>Borrar</a>
+                                        {*{/if}*}
                                         {/if}
                                         </li>
                                     {/if}
@@ -26,17 +28,17 @@
                         {/if}
                     </li>                        
                 {/foreach}
-                {if $admin}
+                {*{if $admin}*}
                     <hr></hr>
                     <li>
                     <h1>ESTILOS</h1>
                         <ul class="listaProductoElemento">
                             {foreach $Estilos as $item}
-                                <li> <a>{$item->nombre}<a> / </a><a href='deleteStyle/{$item->id_estilo}'>Borrar</a><li>
+                                <li> <a>{$item->nombre}{if isset($Admin)}<a> / </a><a href='deleteStyle/{$item->id_estilo}'>Borrar</a>{/if}<li>
                             {/foreach}
                         </ul>    
                     </li>
-                {/if}
+                {*{/if}*}
             </ul>
         </div>
         <div class="py-3 bg-dark col-lg-6 col-sm-8">
@@ -74,7 +76,8 @@
             </div>
         </div>
     </div>        
-    {if $admin}
+    {*{if $admin}*}
+    {if isset($Admin)}
     <div class="row">
         <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
             <div class="row">
@@ -94,6 +97,7 @@
         </div>
     </div>
     {/if}
+    {*{/if}*}
 </div>
 
 

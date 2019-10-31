@@ -11,13 +11,4 @@ class LoginView {
         $smarty->assign('Login', isset($_SESSION));
         $smarty->display('templates/login.tpl');
     }
-
-    function formularioIngresar(){
-        $smarty = new Smarty();
-        $smarty->assign('Context', explode("/", $_GET["action"]));
-        $smarty->assign('Login', isset($_SESSION));
-        $smarty->display('templates/formRegistrarse.tpl');
-    }
-
-    
 }

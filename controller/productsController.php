@@ -12,8 +12,8 @@
         private $modelUser;
 
         function __construct(){
-            $authHelper = new AuthHelper();
-            $authHelper->checkLoggedIn();
+            //$authHelper = new AuthHelper();
+            //$authHelper->checkLoggedIn();
             $this->model = new ProductsModel();
             $this->view = new ProductsView();
             $this->modelUser = new UserModel();
@@ -21,15 +21,15 @@
         
         function productsView(){
             $lista = $this->model->getLista();
-            $admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
+            //$admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
             $styles = $this->model->getStyles();
-            $this->view->mostrar($lista, $styles, $admin);
+            $this->view->mostrar($lista, $styles/*,$admin*/);
         }
 
         function infoProduct($id){
-            $admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
+            //$admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
             $product = $this->model->getProducto($id);
-            $this->view->mostrarProducto($product, $admin);
+            $this->view->mostrarProducto($product/*,$admin*/);
         }
 
         function addProduct(){
