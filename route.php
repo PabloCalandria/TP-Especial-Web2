@@ -10,7 +10,6 @@
     define('LOGIN' , BASE_URL . "login");
     define('LOGOUT' , BASE_URL . "logout");
     define('PRODUCTS' , BASE_URL . "products");
-    define('REGISTRARSE' , BASE_URL . "registrarse");
     define('USUARIOS' , BASE_URL . "usuarios");
 
     $partesURL = explode("/", $_GET["action"]);
@@ -24,10 +23,6 @@
             $controller = new UserController();
             $controller->userView();
             break;
-        /*case 'deleteUser':
-            $controller = new UserController();
-            $controller->deleteUser($partesURL[1]);
-            break;*/
         case 'darAdmin':
             $controller = new UserController();
             $controller->darAdmin($partesURL[1]);
@@ -75,10 +70,6 @@
         case 'deleteStyle':
             $controllerS = new StyleController();
             $controllerS->deleteStyle($partesURL[1]);
-            break;
-        case 'registrarse':
-            $controller = new LoginController();
-            $controller->viewRegistro();
             break;
         case 'agregarUser':
             $controller = new LoginController();
