@@ -16,7 +16,7 @@
                                     {if $item->id_estilo == $cerveza->id_estilo}
                                         <li><a class="link-unstyled" href='infoProduct/{$cerveza->id_cerveza}'>{$cerveza->nombreCerveza}</a>
                                         {*{if $admin}*}
-                                        {if isset($Admin)}
+                                        {if $Login}
                                             <a> / </a>
                                             <a href='deleteProduct/{$cerveza->id_cerveza}'>Borrar</a>
                                         {*{/if}*}
@@ -34,7 +34,7 @@
                     <h1>ESTILOS</h1>
                         <ul class="listaProductoElemento">
                             {foreach $Estilos as $item}
-                                <li> <a>{$item->nombre}{if isset($Admin)}<a> / </a><a href='deleteStyle/{$item->id_estilo}'>Borrar</a>{/if}<li>
+                                <li> <a>{$item->nombre}{if $Login}<a> / </a><a href='deleteStyle/{$item->id_estilo}'>Borrar</a>{/if}<li>
                             {/foreach}
                         </ul>    
                     </li>
@@ -77,25 +77,25 @@
         </div>
     </div>        
     {*{if $admin}*}
-    {if isset($Admin)}
-    <div class="row">
-        <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
-            <div class="row">
-                <div class="offset-1 col-10">
-                    {include file="formProduct.tpl"}
+    {if $Login}
+        <div class="row">
+            <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
+                <div class="row">
+                    <div class="offset-1 col-10">
+                        {include file="formProduct.tpl"}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
-            <div class="row">
-                <div class="offset-1 col-10">
-                    {include file="formStyle.tpl"}
+        <div class="row">
+            <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
+                <div class="row">
+                    <div class="offset-1 col-10">
+                        {include file="formStyle.tpl"}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     {/if}
     {*{/if}*}
 </div>

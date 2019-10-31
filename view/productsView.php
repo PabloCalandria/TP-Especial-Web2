@@ -11,7 +11,7 @@
         
         function mostrar($lista, $style/*, $admin*/){
             $this->smarty->assign('Context', explode("/", $_GET["action"]));
-            //$this->smarty->assign('Login', isset($_SESSION));
+            $this->smarty->assign('Login', isset($_SESSION));
             //$this->smarty->assign('Admin', $_SESSION['ADMIN']);
             //$this->smarty->assign('admin', $admin);
             $this->smarty->assign('Lista', $lista);
@@ -21,7 +21,7 @@
 
         function mostrarProducto($product/*, $admin*/){
             $this->smarty->assign('Context', explode("/", $_GET["action"]));
-            //$this->smarty->assign('Login', isset($_SESSION));
+            $this->smarty->assign('Login', isset($_SESSION));
             //$this->smarty->assign('Admin', $_SESSION['ADMIN']);
             //$this->smarty->assign('admin', $admin);
             $this->smarty->assign('Producto', $product);

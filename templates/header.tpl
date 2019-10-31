@@ -30,28 +30,29 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto linksNav">
-            {*{if !$Login}*}
+            {if !$Login}
                 <li class="nav-item">
                     <a class="nav-link bg-dark" href="http://localhost/Web2/TPEspecial1/login">ADMIN</a>
                 </li>
+            {/if}
             {*{else}*}
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/Web2/TPEspecial1/home">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/Web2/TPEspecial1/products">PRODUCTOS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/Web2/TPEspecial1/contactUs">CONTACTO</a>
+            </li>
+            {if $Login}
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/home">HOME</a>
+                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/usuarios">USUARIOS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/products">PRODUCTOS</a>
+                    <a class="nav-link bg-dark" href="http://localhost/Web2/TPEspecial1/logout">LOGOUT</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/Web2/TPEspecial1/contactUs">CONTACTO</a>
-                </li>
-                {if isset($Admin)}
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/Web2/TPEspecial1/usuarios">USUARIOS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link bg-dark" href="http://localhost/Web2/TPEspecial1/logout">LOGOUT</a>
-                    </li>
-                {/if}
+            {/if}
             </ul>
         </div>
     </nav>

@@ -12,8 +12,8 @@
         private $modelUser;
 
         function __construct(){
-            //$authHelper = new AuthHelper();
-            //$authHelper->checkLoggedIn();
+            $authHelper = new AuthHelper();
+            $authHelper->checkLoggedIn();
             $this->model = new ProductsModel();
             $this->view = new ProductsView();
             $this->modelUser = new UserModel();

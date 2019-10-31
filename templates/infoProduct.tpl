@@ -21,7 +21,7 @@
         </table>
     </div>
     {*{if $admin}*}
-    {if isset($Admin)}
+    {if $Login}
         <div class="py-5 offset-1 col-lg-10 bg-dark">
             <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
                 <div class="form-group">

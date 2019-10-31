@@ -11,8 +11,8 @@
         private $modelUser;
 
         function __construct(){
-            //$authHelper = new AuthHelper();
-            //$authHelper->checkLoggedIn();
+            $authHelper = new AuthHelper();
+            $authHelper->checkLoggedIn();
             $this->modelUser = new UserModel();
             $this->view = new userView();
             $this->model = new UserModel();
@@ -27,9 +27,4 @@
             $this->model->modificarAdmin($id);
             header('Location: ' . USUARIOS);
         }
-
-        /*function deleteUser($id){
-            $this->model->borrarUsuario($id);
-            header('Location: ' . USUARIOS);
-        }*/
 }

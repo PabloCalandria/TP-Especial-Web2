@@ -7,8 +7,8 @@ class HomeController{
     private $view;
 
 	function __construct(){
-        //$authHelper = new AuthHelper();
-        //$authHelper->checkLoggedIn();
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
         $this->view = new HomeView();
     }
     
