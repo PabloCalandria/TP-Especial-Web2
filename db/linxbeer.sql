@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2019 a las 13:40:49
+-- Tiempo de generación: 01-11-2019 a las 03:37:43
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -42,10 +42,10 @@ CREATE TABLE `cerveza` (
 --
 
 INSERT INTO `cerveza` (`id_cerveza`, `nombre`, `cont_alc`, `ibu`, `o_g`, `id_estilo`) VALUES
-(11, 'Quilmes', 3, 3, 3, 2),
-(16, 'palermo', 1, 1, 1, 6),
-(17, 'gg', 2, 24, 1, 8),
-(18, 't', 1, 1, 1, 2);
+(11, 'Quilmes', 10, 5, 10, 2),
+(21, 'Porter', 3, 3, 5, 3),
+(22, 'palermo', 1, 1, 1, 2),
+(23, 'Ipa', 2, 3, 4, 13);
 
 -- --------------------------------------------------------
 
@@ -65,9 +65,8 @@ CREATE TABLE `estilo` (
 INSERT INTO `estilo` (`id_estilo`, `nombre`) VALUES
 (2, 'rubias'),
 (3, 'negras'),
-(6, 'Verde'),
-(8, 'amarillo'),
-(9, 'turqueza');
+(13, 'rojas'),
+(15, 'morena');
 
 -- --------------------------------------------------------
 
@@ -87,10 +86,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_usuario`, `usuario`, `contraseña`, `admin`) VALUES
-(19, 'jedy', '$2y$10$3UC4JSqLEyq0oI3lzumqhOw4whnNQyrkfiaxWC7i0npngdGObQR7q', 1),
 (21, 'pablo', '$2y$10$LrXsN89MLtGgZOxVT.qHROahrmU9pnCRIn4Wvfu9/Qpyr34RV7W1a', 1),
 (22, 'carlos', '$2y$10$.MTqk9yODGLckXFex8PkDeEwSmkAJGoVpvXqAYk5UVhpbOJE.yytq', 0),
-(23, 'facu', '$2y$10$KuYZ3s7Ehf7b3DgOzliyS.uAkOo4WqyturdnkWR2gbjFGTpSutnne', 0);
+(23, 'facu', '$2y$10$KuYZ3s7Ehf7b3DgOzliyS.uAkOo4WqyturdnkWR2gbjFGTpSutnne', 0),
+(28, 'triki', '$2y$10$/oHnVxi0JUg.MfLN9ZV8P.DKosiW4u0/TZZknnNPqjhaRkJ3kUs.y', 0),
+(31, 'asd', '$2y$10$0BW7bSl/1dE2fo1kqGfXDuHECaSJFRZE0UN4Rso0drUEd1nEph.ki', 0),
+(32, 'david', '$2y$10$HRMzqJqHJjO0AwKy167LHuLA6cFKruU..DHP8MMFA5PcJ2mCUx5fu', 0);
 
 --
 -- Índices para tablas volcadas
@@ -124,19 +125,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `estilo`
 --
 ALTER TABLE `estilo`
-  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restricciones para tablas volcadas
