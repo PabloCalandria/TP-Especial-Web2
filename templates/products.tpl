@@ -15,11 +15,9 @@
                                 <ul class="listaProductoElemento">
                                     {if $item->id_estilo == $cerveza->id_estilo}
                                         <li><a class="link-unstyled" href='infoProduct/{$cerveza->id_cerveza}'>{$cerveza->nombreCerveza}</a>
-                                        {*{if $admin}*}
-                                        {if $Login}
+                                        {if $admin}
                                             <a> / </a>
                                             <a href='deleteProduct/{$cerveza->id_cerveza}'>Borrar</a>
-                                        {*{/if}*}
                                         {/if}
                                         </li>
                                     {/if}
@@ -28,17 +26,17 @@
                         {/if}
                     </li>                        
                 {/foreach}
-                {*{if $admin}*}
+                {if $admin}
                     <hr></hr>
                     <li>
                     <h1>ESTILOS</h1>
                         <ul class="listaProductoElemento">
                             {foreach $Estilos as $item}
-                                <li> <a>{$item->nombre}{if $Login}<a> / </a><a href='deleteStyle/{$item->id_estilo}'>Borrar</a>{/if}<li>
+                                <li> <a>{$item->nombre}<a> / </a><a href='deleteStyle/{$item->id_estilo}'>Borrar</a><li>
                             {/foreach}
                         </ul>    
                     </li>
-                {*{/if}*}
+                {/if}
             </ul>
         </div>
         <div class="py-3 bg-dark col-lg-6 col-sm-8">
@@ -76,28 +74,26 @@
             </div>
         </div>
     </div>        
-    {*{if $admin}*}
-    {if $Login}
-        <div class="row">
-            <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
-                <div class="row">
-                    <div class="offset-1 col-10">
-                        {include file="formProduct.tpl"}
-                    </div>
+    {if $admin}
+    <div class="row">
+        <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
+            <div class="row">
+                <div class="offset-1 col-10">
+                    {include file="formProduct.tpl"}
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
-                <div class="row">
-                    <div class="offset-1 col-10">
-                        {include file="formStyle.tpl"}
-                    </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
+            <div class="row">
+                <div class="offset-1 col-10">
+                    {include file="formStyle.tpl"}
                 </div>
             </div>
         </div>
+    </div>
     {/if}
-    {*{/if}*}
 </div>
 
 

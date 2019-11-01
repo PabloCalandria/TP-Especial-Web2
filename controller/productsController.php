@@ -21,13 +21,15 @@
         
         function productsView(){
             $lista = $this->model->getLista();
+            $admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
             $styles = $this->model->getStyles();
-            $this->view->mostrar($lista, $styles);
+            $this->view->mostrar($lista, $styles, $admin);
         }
 
         function infoProduct($id){
+            $admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
             $product = $this->model->getProducto($id);
-            $this->view->mostrarProducto($product);
+            $this->view->mostrarProducto($product, $admin);
         }
 
         function addProduct(){
