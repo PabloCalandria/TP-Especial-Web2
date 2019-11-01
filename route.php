@@ -24,10 +24,6 @@
             $controller = new UserController();
             $controller->userView();
             break;
-        /*case 'deleteUser':
-            $controller = new UserController();
-            $controller->deleteUser($partesURL[1]);
-            break;*/
         case 'darAdmin':
             $controller = new UserController();
             $controller->darAdmin($partesURL[1]);

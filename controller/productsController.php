@@ -51,9 +51,10 @@
             $cont_alc = $_POST['cont_alc'];
             $ibu = $_POST['ibu'];
             $o_g = $_POST['o_g'];
+            $admin = $_SESSION['ADMIN'];
             $this->model->editarProduct($cont_alc,$ibu,$o_g,$id);
             $product = $this->model->getProducto($id);
-            $this->view->mostrarProducto($product);
+            $this->view->mostrarProducto($product, $admin);
         }
     }
 ?>
