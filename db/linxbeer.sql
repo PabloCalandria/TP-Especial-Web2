@@ -13,14 +13,8 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
 -- Base de datos: `linxbeer`
---
+
 
 -- --------------------------------------------------------
 
@@ -86,11 +80,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_usuario`, `usuario`, `contraseña`, `admin`) VALUES
-(21, 'pablo', '$2y$10$LrXsN89MLtGgZOxVT.qHROahrmU9pnCRIn4Wvfu9/Qpyr34RV7W1a', 1),
+(21, 'admin', '$2y$10$LrXsN89MLtGgZOxVT.qHROahrmU9pnCRIn4Wvfu9/Qpyr34RV7W1a', 1),
 (22, 'carlos', '$2y$10$.MTqk9yODGLckXFex8PkDeEwSmkAJGoVpvXqAYk5UVhpbOJE.yytq', 0),
 (23, 'facu', '$2y$10$KuYZ3s7Ehf7b3DgOzliyS.uAkOo4WqyturdnkWR2gbjFGTpSutnne', 0),
 (28, 'triki', '$2y$10$/oHnVxi0JUg.MfLN9ZV8P.DKosiW4u0/TZZknnNPqjhaRkJ3kUs.y', 0),
-(31, 'asd', '$2y$10$0BW7bSl/1dE2fo1kqGfXDuHECaSJFRZE0UN4Rso0drUEd1nEph.ki', 0),
+(31, 'user', '$2y$10$0BW7bSl/1dE2fo1kqGfXDuHECaSJFRZE0UN4Rso0drUEd1nEph.ki', 0),
 (32, 'david', '$2y$10$HRMzqJqHJjO0AwKy167LHuLA6cFKruU..DHP8MMFA5PcJ2mCUx5fu', 0);
 
 --
@@ -149,7 +143,3 @@ ALTER TABLE `user`
 ALTER TABLE `cerveza`
   ADD CONSTRAINT `cerveza_ibfk_1` FOREIGN KEY (`id_estilo`) REFERENCES `estilo` (`id_estilo`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
