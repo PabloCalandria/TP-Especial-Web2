@@ -12,6 +12,7 @@
   <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
     <input type="number" class="form-control" name="o_g" placeholder="O.G.">
   </div>
+  {*input type = file para cargar la imagen y agregar en el form*}
   <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
     <select  name="cerveza_estilo" class="form-control">
       <option selected disabled hidden>Elija un estilo</option>

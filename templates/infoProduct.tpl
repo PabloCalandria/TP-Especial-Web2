@@ -17,6 +17,7 @@
                         <td>{$info->ibu}</td>
                         <td>{$info->o_g}</td>
                         <td>{$info->nombreEstilo}</td>
+                        {*<td>{$info->"nombre de la imagen en la bdo"}</td>*}
                         {$id = $info->id_cerveza}
                 {/foreach}
                 </tr>

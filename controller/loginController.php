@@ -22,7 +22,6 @@ class LoginController {
     public function verifyLogin() {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        
         $user = $this->model->getUser($username);
         if (isset($user) && $user && password_verify($password, $user->contraseña)){
             $this->authHelper->login($user);
@@ -43,12 +42,13 @@ class LoginController {
     }
 
     function registrarUser(){
+        $user = $_POST['newUser'];
+        $password = $_POST['newPass'];
         if((isset($user)) && (isset($password))){
-            $user = $_POST['newUser'];
-            $password = $_POST['newPass'];
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $this->model->registrar($user,$hash);
-            header('Location: ' . LOGIN);
+            $this->authHelper->login($user);
+            header('Location: '. BASE_URL);
         }else {
             header('Location: ' . REGISTRARSE);
         }

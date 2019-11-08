@@ -38,7 +38,9 @@
             $ibu = $_POST['ibu'];
             $o_g = $_POST['o_g'];
             $cerveza_estilo = $_POST['cerveza_estilo'];
-            $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo);
+            //if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png" || $_FILES['imagen']['type'] == "image/jpg") chequea que sea una imagen.. imagen es nombre del input a guardar
+            //$imagen = $_FILES[]; para agarrar la imagen
+            $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo);//,$_FILES['imagen']);
             header('Location: ' . PRODUCTS);
         }
 

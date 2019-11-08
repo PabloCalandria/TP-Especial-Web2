@@ -31,10 +31,22 @@
             return $sentencia->fetchAll(PDO::FETCH_OBJ); 
         }
 
-        function addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo){
+        function addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo){//,$imagen = null){
+            /*$filepath = null;
+            if ($imagen)
+                $filepath = $this->moveFile($imagen);
+            agregar al INSERT INTO*/
             $sentencia = $this->db->prepare('INSERT INTO cerveza(nombre,cont_alc,ibu,o_g,id_estilo) VALUES(?,?,?,?,?)');
             $sentencia->execute(array($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo));
         }
+
+        /*
+        uniqid() reconstruye el nombre para que no se repita
+        private function moveFile($imagen){
+            $filepath = "img/cervezas/" . uniqid() . "." . strtolower(pathinfo($imagen['name'], PATHINFO_EXTENSION));
+            move_uploaded_file($imagen['tmp_name'], $filepath);
+            return $filepath;
+        }*/
 
         function deleteProduct($id){
             $sentencia = $this->db->prepare('DELETE FROM cerveza WHERE id_cerveza=?');
