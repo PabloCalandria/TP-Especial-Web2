@@ -17,9 +17,13 @@
                         <td>{$info->ibu}</td>
                         <td>{$info->o_g}</td>
                         <td>{$info->nombreEstilo}</td>
-                        <td><img src={$info->imagenes_url}</td>
                         {$id = $info->id_cerveza}
                 {/foreach}
+                {if $info->imagenes_url != null}
+                    <div class="offset-4">
+                        <img src="../{$info->imagenes_url}" width="300" height="300" />
+                    </div>
+                {/if}
                 </tr>
         </table>
     </div>
