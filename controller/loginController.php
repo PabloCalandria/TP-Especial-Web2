@@ -47,7 +47,8 @@ class LoginController {
         if($user != null && $password != null){
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $this->model->registrar($user,$hash);
-            $this->authHelper->login($user);
+            $usuario = $this->model->getUser($user);
+            $this->authHelper->login($usuario);
             header('Location: '. BASE_URL);
         }else {
             header('Location: ' . REGISTRARSE);
