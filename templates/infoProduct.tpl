@@ -26,16 +26,27 @@
     {if $admin}
         <div class="py-5 offset-1 col-lg-10 bg-dark">
             <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
-                <div class="form-group">
-                    <input type="number" class="form-control" name="cont_alc" placeholder="Contenido alcoholico">
+                <div class="row">
+                    {foreach $Producto as $info}
+
+                        <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mt-5">
+                            <label class="">Contenido Alcoholico:</label>
+                            <input type="number" class="form-control" name="cont_alc" value="{$info->cont_alc}">
+                        </div>
+                        <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mt-5">
+                            <label class="">IBU:</label>
+                            <input type="number" class="form-control" name="ibu"value="{$info->ibu}">
+                        </div>
+                        <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mt-5">
+                            <label class="">O.G:</label>
+                            <input type="number" class="form-control" name="o_g"value="{$info->o_g}">
+                        </div>
+                        <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mt-5">
+                            <button type="submit" class="btn col-4 offset-4 mt-4 mb-5 "
+                                id="btnContacto">Editar</button>
+                        </div>
+                    {/foreach}
                 </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" name="ibu" placeholder="Ibu">
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" name="o_g" placeholder="O.G">
-                </div>
-                <button type="submit" class="btn btn-primary">Editar</button>
             </form>
         </div>
     {/if}

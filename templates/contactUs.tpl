@@ -54,7 +54,7 @@
                                         <input class="col-12 my-2" type="number" id="resultadoCaptcha"
                                             name="Resultado Captcha" />
                                         <button type="button" id="btnActualizarCaptcha"
-                                            class="btn btn-secondary bg-dark"><i class="fas fa-sync"></i></button>
+                                            class="btn"><i class="fas fa-sync"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="row">
-                <button type="submit" class="deshabilitado btn btn-secondary bg-dark col-4 offset-4 mt-4 mb-5 "
+                <button type="submit" class="deshabilitado btn col-4 offset-4 mt-4 mb-5 "
                     id="btnContacto">Enviar</button>
             </div>
         </div>

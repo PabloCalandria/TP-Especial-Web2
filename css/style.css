@@ -46,6 +46,17 @@ body{
     font-size: 1.3em;
 }
 
+button{
+    background-color: rgb(189, 142, 23)!important;
+    border-color: #000!important;
+    color: #343a40!important; 
+}
+button:hover{
+    background-color: #343a40!important;
+    border-color: #FFF!important;
+    color: rgb(189, 142, 23)!important; 
+}
+
 .encabezado h1 {
     font-size: 3em;
 }
