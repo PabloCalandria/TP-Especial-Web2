@@ -12,9 +12,13 @@
                     <tr>
                         <td>{$info->usuario}</td>
                         {if $info->admin == 1}
-                            <td>Si {*/ <a href='deleteUser/{$info->id_usuario}'>Borrar</a>*}</td>
+                            {if $Usuario != $info->usuario}
+                                    <td>Si / <a href='deleteUser/{$info->id_usuario}'>Borrar</a></td>
+                                {else}
+                                    <td>Si</td>
+                            {/if}
                         {else}
-                            <td>No <a href='darAdmin/{$info->id_usuario}'>Dar Admin</a>{* / <a href='deleteUser/{$info->id_usuario}'>Borrar</a>*}</td>
+                            <td>No / <a href='darAdmin/{$info->id_usuario}'>Dar Admin</a> / <a href='deleteUser/{$info->id_usuario}'>Borrar</a></td>
                         {/if}
                     </tr>
                 {/foreach}

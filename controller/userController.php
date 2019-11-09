@@ -27,4 +27,9 @@
             $this->model->modificarAdmin($id);
             header('Location: ' . USUARIOS);
         }
+
+        function deleteUser($id){
+            $this->model->borrarUsuario($id);
+            header('Location: ' . USUARIOS);
+        }
 }

@@ -76,6 +76,10 @@
             $controller = new LoginController();
             $controller->viewRegistro();
             break;
+        case 'deleteUser':
+            $controller = new UserController();
+            $controller->deleteUser($partesURL[1]);
+            break;
         case 'agregarUser':
             $controller = new LoginController();
             $controller->registrarUser();
