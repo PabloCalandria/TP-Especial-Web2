@@ -44,7 +44,7 @@ class LoginController {
     function registrarUser(){
         $user = $_POST['newUser'];
         $password = $_POST['newPass'];
-        if((isset($user)) && (isset($password))){
+        if($user != null && $password != null){
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $this->model->registrar($user,$hash);
             $this->authHelper->login($user);
