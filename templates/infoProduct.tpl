@@ -17,7 +17,7 @@
                         <td>{$info->ibu}</td>
                         <td>{$info->o_g}</td>
                         <td>{$info->nombreEstilo}</td>
-                        <td>{$info->imagenes_url}</td>
+                        <td><img src={$info->imagenes_url}</td>
                         {$id = $info->id_cerveza}
                 {/foreach}
                 </tr>
