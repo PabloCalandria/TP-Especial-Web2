@@ -33,9 +33,14 @@ class UserModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    function modificarAdmin($id){
+    function darAdmin($id){
         $sentencia = $this->db->prepare('UPDATE user SET admin=? WHERE id_usuario=? ');
         $sentencia->execute(array(1,$id));
+    }
+
+    function quitarAdmin($id){
+        $sentencia = $this->db->prepare('UPDATE user SET admin=? WHERE id_usuario=? ');
+        $sentencia->execute(array(0,$id));
     }
 
     function borrarUsuario($id){

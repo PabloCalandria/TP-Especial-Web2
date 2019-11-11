@@ -24,8 +24,13 @@
         }
 
         function darAdmin($id){
-            $this->model->modificarAdmin($id);
+            $this->model->darAdmin($id);
             header('Location: ' . USUARIOS);
+        }
+
+        function quitarAdmin($id){
+            $this->model->quitarAdmin($id);
+            header('Location: ' . USUARIOS);            
         }
 
         function deleteUser($id){

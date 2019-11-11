@@ -13,7 +13,7 @@
                         <td>{$info->usuario}</td>
                         {if $info->admin == 1}
                             {if $Usuario != $info->usuario}
-                                    <td>Si / <a href='deleteUser/{$info->id_usuario}'>Borrar</a></td>
+                                    <td>Si / <a href='quitarAdmin/{$info->id_usuario}'>Quitar Admin</a> / <a href='deleteUser/{$info->id_usuario}'>Borrar</a></td>
                                 {else}
                                     <td>Si</td>
                             {/if}

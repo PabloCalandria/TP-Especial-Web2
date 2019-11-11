@@ -98,6 +98,10 @@
             $controller = new ImagenController();
             $controller->deleteImg($partesURL[1],$partesURL[2]);
             break;
+        case 'quitarAdmin':
+            $controller = new UserController();
+            $controller->quitarAdmin($partesURL[1]);
+            break;
         default:
             echo "<h1>Error 404 - Page not found </h1>";
             break;
