@@ -19,9 +19,15 @@
                         <td>{$info->nombreEstilo}</td>
                         {$id = $info->id_cerveza}
                 {/foreach}
-                {if $info->imagenes_url != null}
-                    <div class="offset-4">
-                        <img src="../{$info->imagenes_url}" width="300" height="300" />
+                {include file='templates/carrusel.tpl'}
+                {if $admin}
+                    <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mt-5">
+                        <form action="../agregarImagen/{$id}" method="post" enctype="multipart/form-data" class="table-bordered table-dark">
+                            <div class="">
+                                <input type="file" class="form-control btn col-10 offset-3 mt-3 mb-5" name="img" multiple>
+                            </div>
+                            <button type="submit" class="btn col-3 offset-3 mt-3 mb-5">Agregar</button>
+                        </form>
                     </div>
                 {/if}
                 </tr>
@@ -32,7 +38,6 @@
             <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
                 <div class="row">
                     {foreach $Producto as $info}
-
                         <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mt-5">
                             <label class="">Contenido Alcoholico:</label>
                             <input type="number" class="form-control" name="cont_alc" value="{$info->cont_alc}">

@@ -3,12 +3,14 @@
     require_once "./view/productsView.php";
     require_once "./model/productsModel.php";
     require_once "./model/userModel.php";
+    require_once "./model/imagenModel.php";
     include_once('./helpers/authHelper.php');
 
     class ProductsController{
         
         private $view;
         private $model;
+        private $modelImg;
         private $modelUser;
 
         function __construct(){
@@ -16,6 +18,7 @@
             $authHelper->checkLoggedIn();
             $this->model = new ProductsModel();
             $this->view = new ProductsView();
+            $this->modelImg = new ImagenModel();
             $this->modelUser = new UserModel();
         }
         
@@ -29,7 +32,8 @@
         function infoProduct($id){
             $admin = $this->modelUser->adminUser($_SESSION['USERNAME']);
             $product = $this->model->getProducto($id);
-            $this->view->mostrarProducto($product, $admin);
+            $imagenes = $this->modelImg->getImagenes($id);
+            $this->view->mostrarProducto($product, $imagenes, $admin);
         }
 
         function addProduct(){

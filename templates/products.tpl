@@ -75,24 +75,24 @@
         </div>
     </div>        
     {if $admin}
-    <div class="row">
-        <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
-            <div class="row">
-                <div class="offset-1 col-10">
-                    {include file="formProduct.tpl"}
+        <div class="row">
+            <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
+                <div class="row">
+                    <div class="offset-1 col-10">
+                        {include file="formProduct.tpl"}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
-            <div class="row">
-                <div class="offset-1 col-10">
-                    {include file="formStyle.tpl"}
+        <div class="row">
+            <div class="offset-lg-1 col-lg-10 col-sm-12 py-4">
+                <div class="row">
+                    <div class="offset-1 col-10">
+                        {include file="formStyle.tpl"}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     {/if}
 </div>
 

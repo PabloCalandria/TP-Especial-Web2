@@ -5,6 +5,7 @@
     require_once ('controller/contactUsController.php');
     require_once ('controller/styleController.php');
     require_once ('controller/userController.php');
+    require_once ('controller/imagenController.php');
 
     define('BASE_URL' , "http://".$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]. dirname($_SERVER["PHP_SELF"]). "/");
     define('LOGIN' , BASE_URL . "login");
@@ -12,6 +13,7 @@
     define('PRODUCTS' , BASE_URL . "products");
     define('REGISTRARSE' , BASE_URL . "registrarse");
     define('USUARIOS' , BASE_URL . "usuarios");
+    define('INFO_PRODUCTS' , BASE_URL . "infoProduct");
 
     $partesURL = explode("/", $_GET["action"]);
     
@@ -87,6 +89,14 @@
         case 'editarProduct':
             $controller = new ProductsController();
             $controller->editProduct($partesURL[1]);
+            break;
+        case 'agregarImagen':
+            $controller = new ImagenController();
+            $controller->addImagen($partesURL[1]);
+            break;
+        case 'deleteImagen':
+            $controller = new ImagenController();
+            $controller->deleteImg($partesURL[1],$partesURL[2]);
             break;
         default:
             echo "<h1>Error 404 - Page not found </h1>";
