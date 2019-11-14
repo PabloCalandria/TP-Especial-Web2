@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2019 a las 20:43:13
+-- Tiempo de generación: 14-11-2019 a las 17:10:43
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -35,7 +35,7 @@ CREATE TABLE `cerveza` (
   `ibu` double NOT NULL,
   `o_g` int(11) NOT NULL,
   `id_estilo` int(11) NOT NULL,
-  `imagenes_url` varchar(255) NOT NULL
+  `imagenes_url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -43,11 +43,13 @@ CREATE TABLE `cerveza` (
 --
 
 INSERT INTO `cerveza` (`id_cerveza`, `nombre`, `cont_alc`, `ibu`, `o_g`, `id_estilo`, `imagenes_url`) VALUES
-(11, 'Quilmes', 10, 5, 10, 2, ''),
-(21, 'Porter', 3, 3, 5, 3, ''),
-(22, 'palermo', 0, 0, 0, 2, ''),
-(23, 'Ipa', 2, 3, 4, 13, ''),
-(26, 'triki', 2, 2, 2, 2, 'img/cervezas/5dc714c5e2592.jpg');
+(11, 'Quilmes', 10, 5, 10, 2, NULL),
+(21, 'Porter', 3, 3, 5, 3, NULL),
+(22, 'palermo', 0, 0, 0, 2, NULL),
+(23, 'Ipa', 2, 3, 4, 13, NULL),
+(28, 'Corona', 1, 1, 1, 2, NULL),
+(29, 'Kolsh', 1, 6, 3, 2, NULL),
+(30, 'test', 4, 4, 4, 13, NULL);
 
 -- --------------------------------------------------------
 
@@ -95,6 +97,16 @@ CREATE TABLE `imagenes` (
   `url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `imagenes`
+--
+
+INSERT INTO `imagenes` (`id_imagenes`, `id_cerveza`, `url`) VALUES
+(3, 11, 'img/cervezas/5dc988e5255ea.jpg'),
+(5, 29, 'img/cervezas/5dc98a2cf21cd.jpg'),
+(8, 29, 'img/cervezas/5dc9afcf5ed06.jpeg'),
+(9, 29, 'img/cervezas/5dc9afd987fd2.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -117,7 +129,6 @@ INSERT INTO `user` (`id_usuario`, `usuario`, `contraseña`, `admin`) VALUES
 (22, 'carlos', '$2y$10$.MTqk9yODGLckXFex8PkDeEwSmkAJGoVpvXqAYk5UVhpbOJE.yytq', 0),
 (23, 'facu', '$2y$10$KuYZ3s7Ehf7b3DgOzliyS.uAkOo4WqyturdnkWR2gbjFGTpSutnne', 0),
 (28, 'triki', '$2y$10$/oHnVxi0JUg.MfLN9ZV8P.DKosiW4u0/TZZknnNPqjhaRkJ3kUs.y', 0),
-(46, 'nuevo', '$2y$10$wVcvatYlerMG2QRcyU8GEOOXZ7WXiw6RZYICIpiVzkRcTmyGOOIh6', 0),
 (47, 'andres', '$2y$10$klxMhuSO.AGyukMqu6ltv.lhuBt8QRUAhLbBXmhGKmx4AoKfk8dZq', 0);
 
 --
@@ -166,7 +177,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
@@ -184,13 +195,13 @@ ALTER TABLE `estilo`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id_imagenes` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- Restricciones para tablas volcadas
