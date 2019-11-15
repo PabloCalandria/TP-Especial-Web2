@@ -17,7 +17,7 @@
         }
 
         private function moveFile($imagen){
-            $filepath = "img/cervezas/" . uniqid() . "." . strtolower(pathinfo($imagen['name'], PATHINFO_EXTENSION));
+            $filepath = "images/cervezas/" . uniqid() . "." . strtolower(pathinfo($imagen['name'], PATHINFO_EXTENSION));
             move_uploaded_file($imagen['tmp_name'], $filepath);
             return $filepath;
         }
