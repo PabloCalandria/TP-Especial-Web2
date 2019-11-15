@@ -23,6 +23,7 @@
                 </tr>
         </table>
     </div>
+    {include file='templates/comentarios.tpl'}
     {if $admin}
         <div class="py-5 offset-1 col-lg-10 bg-dark">
             <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
