@@ -10,6 +10,15 @@ class MensajesController{
     function __construct(){
         $authHelper = new AuthHelper();
         $authHelper->checkLoggedIn();
+        $this->model = new ComentarioModel();
+    }
+
+    function agregarComentario($id){
+        
+    }
+
+    function borrarComentario($id){
+
     }
     
 }
