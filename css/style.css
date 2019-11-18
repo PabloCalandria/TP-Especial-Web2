@@ -57,6 +57,25 @@ button:hover{
     color: rgb(189, 142, 23)!important; 
 }
 
+.borra-cerveza{
+    padding:1%;
+    background-color: #F00;
+    color: #FFF; 
+    border-radius:2px;
+}
+
+.borra-cerveza:hover{
+    background-color: #343a40;
+    color: #FFF; 
+    border-radius:2px;
+}
+
+.agregarArchivo{
+   background-color: rgb(153, 153, 153);
+   border-radius: 20px; 
+   padding:2%;
+}
+
 .encabezado h1 {
     font-size: 3em;
 }
@@ -76,7 +95,7 @@ button:hover{
     margin-right: 0;
 }
 
-.listaProductos h1 {
+.listaProductos h1, .agregarImagenTitulo {
     margin-bottom: 0;
     font-family: 'Cocogoose';
     font-size: 1.6em;
@@ -84,6 +103,10 @@ button:hover{
     color: rgb(189, 142, 23);
 }
 
+.agregarImagenTitulo{
+    color: #343a40;
+    ;
+}
 .listaProductoElemento {
     list-style: square;
     font-size: 1.5em;

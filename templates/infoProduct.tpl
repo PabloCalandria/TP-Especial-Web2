@@ -1,7 +1,8 @@
 {include file='templates/header.tpl'}
 
 <div class="container-fluid bg-secondary">
-
+    <div class="row">
+    </div>
     <div class="row py-5 offset-1 col-lg-10 bg-dark">
         <table class="table table-bordered table-dark">
                 <tr class="">
@@ -19,9 +20,11 @@
                         <td>{$info->nombreEstilo}</td>
                         {$id = $info->id_cerveza}
                 {/foreach}
-                {include file='templates/carrusel.tpl'}
                 </tr>
         </table>
+        <div class="offset-1 col-10 bg-dark">
+            {include file='templates/carrusel.tpl'}
+        </div>
     </div>
     {include file='templates/comentarios.tpl'}
     {if $admin}
