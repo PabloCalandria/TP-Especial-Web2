@@ -14,16 +14,21 @@ class ImagenController{
     }
     
     function addImagen($id){
-        if ($_FILES['img']['name']) {
-            if ($_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/png") {
-                $this->model->addImg($id,$_FILES['img']);                }
-            else {
-                $this->view->showError("Formato no aceptado");
-                die();
+        if ($_FILES['img']['name'] == null){
+            header('Location: ' . INFO_PRODUCTS . "/" . $id);
+        }else{
+            if ($_FILES['img']['name']) {
+                if ($_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/png") {
+                    $this->model->addImg($id,$_FILES['img']);                
+                }
+                else {
+                    $this->view->showError("Formato no aceptado");
+                    die();
+                }
             }
-        }
-        else {
-            $this->model->addImg($id,$_FILES['img']);  
+            else {
+                $this->model->addImg($id,$_FILES['img']);  
+            }
         }
         header('Location: ' . INFO_PRODUCTS . "/" . $id);
     }

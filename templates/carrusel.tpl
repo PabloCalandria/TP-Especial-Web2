@@ -24,7 +24,7 @@
 				{$j=1}
 
 				{else}
-						<div class="carousel-item">
+					<div class="carousel-item">
 					<img class="d-block w-100" src="../{$img->url}"/>
 					<div class="carousel-caption">
 						{if $admin}<a class="borra-cerveza" href='../deleteImagen/{$img->id_imagenes}/{$img->id_cerveza}'><i class="fas fa-trash-alt"></i></a>{/if}
