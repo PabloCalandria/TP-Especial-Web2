@@ -1,6 +1,6 @@
 <div class="py-2 offset-1 col-lg-10 bg-dark">
     <h1 class="text-center tituloTabla"> Comentarios</h1>
-    <div class="">
+    <div class="comentarios">
 
     </div>
 </div>

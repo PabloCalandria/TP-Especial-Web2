@@ -4,13 +4,13 @@ document.querySelector(".form-comentario").addEventListener('submit', addComenta
 
 function addComentario(e) {
     e.preventDefault();
-    
+
     let data = {
-        comentario:  document.querySelector("input[name=text-comentario]").value,
-        puntaje:  document.querySelector("input[name=puntaje-comentario]").value,
+        'texto' :  document.querySelector("input[name=text-comentario]").value ,
+        'puntaje' :  document.querySelector("input[name=puntaje-comentario]").value ,
     }
 
-    fetch('api/comentarios', {
+    fetch('Web2/TPEspecial1/comentarios/:ID', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},       
         body: JSON.stringify(data) 
@@ -22,7 +22,7 @@ function addComentario(e) {
 }
 
 function getComentario() {
-    fetch('api/comentarios')
+    fetch('Web2/TPEspecial1/comentarios/:ID')
     .then(response => response.json())
     .then(tasks => {
         app.tasks = tasks; // similar a $this->smarty->assign("tasks", $tasks)
