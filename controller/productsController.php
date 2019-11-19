@@ -68,7 +68,8 @@
             $admin = $_SESSION['ADMIN'];
             $this->model->editarProduct($cont_alc,$ibu,$o_g,$id);
             $product = $this->model->getProducto($id);
-            $this->view->mostrarProducto($product, $admin);
+            $imagenes = $this->modelImg->getImagenes($id);
+            $this->view->mostrarProducto($product, $imagenes, $admin);
         }
     }
 ?>
