@@ -9,6 +9,7 @@ class LoginView {
         $smarty->assign('Context', explode("/", $_GET["action"]));
         $smarty->assign('Message', $message);
         $smarty->assign('Login', isset($_SESSION));
+        $smarty->assign('BASE_URL', BASE_URL);
         $smarty->display('templates/login.tpl');
     }
 
@@ -16,6 +17,7 @@ class LoginView {
         $smarty = new Smarty();
         $smarty->assign('Context', explode("/", $_GET["action"]));
         $smarty->assign('Login', isset($_SESSION));
+        $smarty->assign('BASE_URL', BASE_URL);
         $smarty->display('templates/formRegistrarse.tpl');
     }
 

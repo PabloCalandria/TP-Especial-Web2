@@ -14,8 +14,8 @@
     $router->addRoute("/tareas/:ID", "DELETE", "TaskApiController", "deleteTask");
     $router->addRoute("/tareas", "POST", "TaskApiController", "addTask");
     $router->addRoute("/tareas/:ID", "PUT", "TaskApiController", "updateTask");*/
-    $router->addRoute("/comentarios/:ID", "POST", "MensajesController", "agregarComentario");
-    $router->addRoute("/comentarios/:ID", "GET", "MensajesController", "getComentario");
+    $router->addRoute("comentarios/:ID", "GET", "MensajesController", "getComentario");
+    $router->addRoute("comentarios", "POST", "MensajesController", "addComentario");
 
     //run
     $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 

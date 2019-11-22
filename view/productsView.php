@@ -14,6 +14,7 @@
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Admin', $_SESSION['ADMIN']);
             $this->smarty->assign('admin', $admin);
+            $this->smarty->assign('BASE_URL', BASE_URL);
             $this->smarty->assign('Lista', $lista);
             $this->smarty->assign('Estilos', $style);
             $this->smarty->display('templates/products.tpl');
@@ -24,6 +25,7 @@
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Admin', $_SESSION['ADMIN']);
             $this->smarty->assign('admin', $admin);
+            $this->smarty->assign('BASE_URL', BASE_URL);
             $this->smarty->assign('Producto', $product);
             $this->smarty->assign('Imagenes', $imagenes);
             $this->smarty->display('templates/infoProduct.tpl');

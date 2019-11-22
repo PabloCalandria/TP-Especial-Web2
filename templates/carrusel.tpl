@@ -16,18 +16,18 @@
 			{foreach $Imagenes as $img}
 				{if $j == 0}
 				<div class="carousel-item active">
-					<img class="d-block w-100" src="../{$img->url}"/>
+					<img class="d-block w-100" src="{$img->url}"/>
 					<div class="carousel-caption">
-						{if $admin}<a class="borra-cerveza" href='../deleteImagen/{$img->id_imagenes}/{$img->id_cerveza}'><i class="fas fa-trash-alt"></i></a>{/if}
+						{if $admin}<a class="borra-cerveza" href='deleteImagen/{$img->id_imagenes}/{$img->id_cerveza}'><i class="fas fa-trash-alt"></i></a>{/if}
 					</div>
 				</div>
 				{$j=1}
 
 				{else}
 					<div class="carousel-item">
-					<img class="d-block w-100" src="../{$img->url}"/>
+					<img class="d-block w-100" src="{$img->url}"/>
 					<div class="carousel-caption">
-						{if $admin}<a class="borra-cerveza" href='../deleteImagen/{$img->id_imagenes}/{$img->id_cerveza}'><i class="fas fa-trash-alt"></i></a>{/if}
+						{if $admin}<a class="borra-cerveza" href='deleteImagen/{$img->id_imagenes}/{$img->id_cerveza}'><i class="fas fa-trash-alt"></i></a>{/if}
 					</div>
 				</div>
 				{/if}
@@ -46,7 +46,7 @@
 {if $admin}
 		<div class="agregarArchivo offset-2 col-8 my-1">
 		<h1 class="agregarImagenTitulo">Ingrese la imagen de una cerveza:</h1>
-			<form action="../agregarImagen/{$id}" method="post" enctype="multipart/form-data">
+			<form action="agregarImagen/{$id}" method="post" enctype="multipart/form-data">
 				<input type="file" class="form-control btn col-7 mt-3" name="img" multiple>
 				<button type="submit" class="btn offset-1 mt-3">Agregar</button>
 			</form> 

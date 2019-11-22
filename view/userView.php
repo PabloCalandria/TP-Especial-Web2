@@ -14,6 +14,7 @@
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Usuario', $_SESSION['USERNAME']);
             $this->smarty->assign('Admin', $_SESSION['ADMIN']);
+            $smarty->assign('BASE_URL', BASE_URL);
             $this->smarty->assign('Users', $users);
             $this->smarty->display('templates/users.tpl');
         }

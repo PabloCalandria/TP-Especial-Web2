@@ -1,29 +1,34 @@
 <?php
 
-include_once('./helpers/authHelper.php');
+include_once('./model/comentarioModel.php');
+require_once("./api/apiController.php");
+require_once("./api/jsonView.php");
 
-class MensajesController{
-    
-    private $view;
+class MensajesController extends ApiController{
+ 
     private $model;
 
     function __construct(){
-        $authHelper = new AuthHelper();
-        $authHelper->checkLoggedIn();
+        parent::__construct();
         $this->model = new ComentarioModel();
     }
 
-    function agregarComentario($id){
-        $descripcion = $_POST['text-comentario'];
-        $puntaje = $_POST['puntaje-comentario'];
-        $this->model->addComentario($id,$descripcion,$puntaje);        
-    }
+    function addComentario($params = null) {
 
-    function getComentarios($id){
+        $body = $this->getData();
+
+        var_dump($body);
+        
+        $this->model->addComentario($body->id_cerveza, $body->texto, $body->puntaje);
+
+        $this->view->response("El comentario se agrego con exito", 200);
+}
+
+    function getComentarios($params = null){
     
     }
 
-    function borrarComentario($id){
+    function borrarComentario($params = null){
 
     }
     

@@ -9,6 +9,7 @@
             $smarty->assign('Context', $url[0]);
             $smarty->assign('Login', isset($_SESSION));
             $smarty->assign('Admin', $_SESSION['ADMIN']);
+            $smarty->assign('BASE_URL', BASE_URL);
             $smarty->display('templates/contactUs.tpl');
         }        
     }   

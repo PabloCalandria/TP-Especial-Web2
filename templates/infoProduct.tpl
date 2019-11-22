@@ -29,7 +29,7 @@
     {include file='templates/comentarios.tpl'}
     {if $admin}
         <div class="py-5 offset-1 col-lg-10 bg-dark">
-            <form method="post" action="../editarProduct/{$id}" class="table-bordered table-dark">
+            <form method="post" action="editarProduct/{$id}" class="table-bordered table-dark">
                 <div class="row">
                     {foreach $Producto as $info}
                         <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
