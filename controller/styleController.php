@@ -18,13 +18,23 @@
         }
 
         function addStyle(){
-            $estilo = $_POST['nombre_estilo'];
-            $this->model->addStyle($estilo);
-            header('Location: ' . PRODUCTS);    
+            if ($_SESSION['ADMIN'] == '1'){
+                $estilo = $_POST['nombre_estilo'];
+                $this->model->addStyle($estilo);
+                header('Location: ' . PRODUCTS); 
+            }
+            else{
+                header('Location: ' . SIN_PERMISOS); 
+            }    
         }
 
         function deleteStyle($id){
-            $this->model->deleteStyle($id);
-            header('Location: ' . PRODUCTS);
+            if ($_SESSION['ADMIN'] == '1'){
+                $this->model->deleteStyle($id);
+                header('Location: ' . PRODUCTS);
+            }
+            else{
+                header('Location: ' . SIN_PERMISOS); 
+            }  
         }
     }

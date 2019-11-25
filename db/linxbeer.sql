@@ -91,18 +91,6 @@ CREATE TABLE `imagenes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `imagenes`
---
-
-INSERT INTO `imagenes` (`id_imagenes`, `id_cerveza`, `url`) VALUES
-(3, 11, 'img/cervezas/5dc988e5255ea.jpg'),
-(5, 29, 'img/cervezas/5dc98a2cf21cd.jpg'),
-(8, 29, 'img/cervezas/5dc9afcf5ed06.jpeg'),
-(9, 29, 'img/cervezas/5dc9afd987fd2.jpg');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `user`
 --
 

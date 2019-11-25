@@ -14,28 +14,38 @@ class ImagenController{
     }
     
     function addImagen($id){
-        if ($_FILES['img']['name'] == null){
-            header('Location: ' . INFO_PRODUCTS . "/" . $id);
-        }else{
-            if ($_FILES['img']['name']) {
-                if ($_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/png") {
-                    $this->model->addImg($id,$_FILES['img']);                
+        if ($_SESSION['ADMIN'] == '1'){
+            if ($_FILES['img']['name'] == null){
+                header('Location: ' . INFO_PRODUCTS . "/" . $id);
+            }else{
+                if ($_FILES['img']['name']) {
+                    if ($_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/png") {
+                        $this->model->addImg($id,$_FILES['img']);                
+                    }
+                    else {
+                        $this->view->showError("Formato no aceptado");
+                        die();
+                    }
                 }
                 else {
-                    $this->view->showError("Formato no aceptado");
-                    die();
+                    $this->model->addImg($id,$_FILES['img']);  
                 }
             }
-            else {
-                $this->model->addImg($id,$_FILES['img']);  
-            }
+            header('Location: ' . INFO_PRODUCTS . "/" . $id);
         }
-        header('Location: ' . INFO_PRODUCTS . "/" . $id);
+        else{
+            header('Location: ' . SIN_PERMISOS); 
+        }  
     }
 
     function deleteImg($idB,$idC){
-        $this->model->eliminaImg($idB);
-        header('Location: ' . INFO_PRODUCTS . "/" . $idC);
+        if ($_SESSION['ADMIN'] == '1'){
+            $this->model->eliminaImg($idB);
+            header('Location: ' . INFO_PRODUCTS . "/" . $idC);
+        }
+        else{
+            header('Location: ' . SIN_PERMISOS); 
+        }  
     }
 }
 
