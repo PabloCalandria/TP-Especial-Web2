@@ -21,6 +21,8 @@
         }
 
         function mostrarProducto($product, $imagenes, $admin){
+            $url = explode("/", $_GET["action"]);
+            $this->smarty->assign('Context2', $url[1]);
             $this->smarty->assign('Context', explode("/", $_GET["action"]));
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Admin', $_SESSION['ADMIN']);
