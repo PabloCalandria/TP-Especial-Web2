@@ -14,6 +14,7 @@
     define('REGISTRARSE' , BASE_URL . "registrarse");
     define('USUARIOS' , BASE_URL . "usuarios");
     define('INFO_PRODUCTS' , BASE_URL . "infoProduct");
+    define('SIN_PERMISOS' , BASE_URL . "permisoDenegado");
 
     $partesURL = explode("/", $_GET["action"]);
     
@@ -101,6 +102,9 @@
         case 'quitarAdmin':
             $controller = new UserController();
             $controller->quitarAdmin($partesURL[1]);
+            break;
+        case 'permisoDenegado':
+            echo "<h1>No posee permisos para realizar esta operación, comuniquese con el aministrador</h1>";
             break;
         default:
             echo "<h1>Error 404 - Page not found </h1>";

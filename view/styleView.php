@@ -14,7 +14,7 @@
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Admin', $_SESSION['ADMIN']);
             $this->smarty->assign('Lista', $lista);
-            $smarty->assign('BASE_URL', BASE_URL);
+            $this->smarty->assign('BASE_URL', BASE_URL);
             $this->smarty->display('templates/products.tpl');
         }
 

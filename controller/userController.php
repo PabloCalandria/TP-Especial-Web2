@@ -24,17 +24,32 @@
         }
 
         function darAdmin($id){
-            $this->model->darAdmin($id);
-            header('Location: ' . USUARIOS);
+            if ($_SESSION['ADMIN'] == '1'){
+                $this->model->darAdmin($id);
+                header('Location: ' . USUARIOS);
+            }
+            else{
+                header('Location: ' . SIN_PERMISOS); 
+            }
         }
 
         function quitarAdmin($id){
-            $this->model->quitarAdmin($id);
-            header('Location: ' . USUARIOS);            
+            if ($_SESSION['ADMIN'] == '1'){
+                $this->model->quitarAdmin($id);
+                header('Location: ' . USUARIOS);
+            }
+            else{
+                header('Location: ' . SIN_PERMISOS); 
+            }            
         }
 
         function deleteUser($id){
-            $this->model->borrarUsuario($id);
-            header('Location: ' . USUARIOS);
+            if ($_SESSION['ADMIN'] == '1'){
+                $this->model->borrarUsuario($id);
+                header('Location: ' . USUARIOS);
+            }
+            else{
+                header('Location: ' . SIN_PERMISOS); 
+            } 
         }
 }

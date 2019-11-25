@@ -37,39 +37,54 @@
         }
 
         function addProduct(){
-            $estilo = $_POST['nombre_cerveza'];
-            $cont_alc = $_POST['cont_alc'];
-            $ibu = $_POST['ibu'];
-            $o_g = $_POST['o_g'];
-            $cerveza_estilo = $_POST['cerveza_estilo'];
-            if ($_FILES['imagen']['name']) {
-                if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {
-                    $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo,$_FILES['imagen']);                }
-                else {
-                    $this->view->showError("Formato no aceptado");
-                    die();
+            if ($_SESSION['ADMIN'] == '1'){
+                $estilo = $_POST['nombre_cerveza'];
+                $cont_alc = $_POST['cont_alc'];
+                $ibu = $_POST['ibu'];
+                $o_g = $_POST['o_g'];
+                $cerveza_estilo = $_POST['cerveza_estilo'];
+                if ($_FILES['imagen']['name']) {
+                    if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {
+                        $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo,$_FILES['imagen']);                }
+                    else {
+                        $this->view->showError("Formato no aceptado");
+                        die();
+                    }
                 }
+                else {
+                    $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo);  
+                }
+                header('Location: ' . PRODUCTS);
             }
-            else {
-                $this->model->addProduct($estilo,$cont_alc,$ibu,$o_g,$cerveza_estilo);  
-            }
-            header('Location: ' . PRODUCTS);
+            else{
+                header('Location: ' . SIN_PERMISOS); 
+            }  
         }
 
         function deleteProduct($id){
+            if ($_SESSION['ADMIN'] == '1'){
             $this->model->deleteProduct($id);
             header('Location: ' . PRODUCTS);
+            }
+            else{
+                header('Location: ' . SIN_PERMISOS); 
+            }  
         }
 
         function editProduct($id){
-            $cont_alc = $_POST['cont_alc'];
-            $ibu = $_POST['ibu'];
-            $o_g = $_POST['o_g'];
-            $admin = $_SESSION['ADMIN'];
-            $this->model->editarProduct($cont_alc,$ibu,$o_g,$id);
-            $product = $this->model->getProducto($id);
-            $imagenes = $this->modelImg->getImagenes($id);
-            $this->view->mostrarProducto($product, $imagenes, $admin);
+            if ($_SESSION['ADMIN'] == '1'){
+                $cont_alc = $_POST['cont_alc'];
+                $ibu = $_POST['ibu'];
+                $o_g = $_POST['o_g'];
+                $admin = $_SESSION['ADMIN'];
+                $this->model->editarProduct($cont_alc,$ibu,$o_g,$id);
+                $product = $this->model->getProducto($id);
+                $imagenes = $this->modelImg->getImagenes($id);
+                $this->view->mostrarProducto($product, $imagenes, $admin);
+            }
+            else{
+                header('Location: ' . SIN_PERMISOS); 
+            }
         }
     }
 ?>
