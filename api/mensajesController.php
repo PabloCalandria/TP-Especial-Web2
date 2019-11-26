@@ -1,8 +1,8 @@
 <?php
 
 include_once('./model/comentarioModel.php');
-require_once("./api/apiController.php");
-require_once("./api/jsonView.php");
+require_once("apiController.php");
+require_once("jsonView.php");
 
 class MensajesController extends ApiController{
  
@@ -21,24 +21,22 @@ class MensajesController extends ApiController{
 
     function getComentarios($params = null){
         $id = $params[':ID'];
-        var_dump($id);
-        $tarea = $this->model->getComentario($id);
-        var_dump($tareas);
-        if ($tarea) {
-            $this->view->response($tarea, 200);   
+        $comentarios = $this->model->getComentario($id);
+        if ($comentarios) {
+            $this->view->response($comentarios, 200);   
         } else {
             $this->view->response("No existe la tarea con el id={$id}", 404);
         }
     }
 
-    function borrarComentario($params = null){
-        $task_id = $params[':ID'];
-        $task = $this->model->GetTarea($task_id);
-        if ($task) {
-            $this->model->BorrarTarea($task_id);
-            $this->view->response("Tarea id=$task_id eliminada con éxito", 200);
+    function deleteComentario($params = null){
+        $id = $params[':ID'];
+        $comentarios = $this->model->getComentario($id);
+        if ($comentarios) {
+            $this->model->borraComentario($id);
+            $this->view->response("comentario id=$id eliminado con éxito", 200);
         }
         else 
-            $this->view->response("Task id=$task_id not found", 404);
+            $this->view->response("comentarios id=$id not found", 404);
     }
 }

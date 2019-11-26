@@ -19,7 +19,8 @@
         <script src="js/validaciones.js"></script>
     {/if}
     <script src="js/comentarios.js"></script> {*comentarios*}
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> {*vue*}
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>

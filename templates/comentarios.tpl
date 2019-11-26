@@ -5,7 +5,7 @@
     </div>
 </div>
 
-{include file="templates/vue/list-comentarios.tpl"}
+{include file="vue/list-comentarios.tpl"}
 
 <div class="container-fluid">
     <div class="row">

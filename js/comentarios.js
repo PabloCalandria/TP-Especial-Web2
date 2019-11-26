@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 function cargarPagina() {
 
@@ -8,10 +8,23 @@ function cargarPagina() {
         el: ".vue-comentarios",
         data: {
             subtitle: "Estas tareas se renderizan desde el cliente usando Vue.js",
-            tasks: [], 
-            //auth: true
-        }
+            comments: [], 
+            auth: true
+        },
+
+    methods: {
+        del: function (id_comentario) {
+          fetch('api/comentarios/' + id_comentario, {
+              method: 'DELETE',
+           })
+           .then(response => {
+                getComentarios();
+           })
+           .catch(error => console.log(error));
+         }
+      }
     });
+  
     
     function addComentario(e) {
         e.preventDefault();
@@ -29,22 +42,22 @@ function cargarPagina() {
             body: JSON.stringify(data),
         })
         .then(response => {
-            getComentario();
+            getComentarios();
         })
         .catch(error => console.log(error));
     }
 
-    function getComentario() {
-        let $id = window.location.pathname.split('/')[4];
-        fetch('api/comentarios' + '/' + $id) //comentarios/:ID
+    function getComentarios() {
+        let $id = window.location.pathname.split('/')[4];                
+        fetch('api/comentarios/' + $id) //comentarios/:ID
         .then(response => response.json())
-        .then(tasks => {
-            app.tasks = tasks; // similar a $this->smarty->assign("tasks", $tasks)
+        .then(comments => {
+            app.comments = comments; // similar a $this->smarty->assign("tasks", $tasks)
         })
         .catch(error => console.log(error));
     }
 
-    getComentario();
+    getComentarios();
 
 }
 

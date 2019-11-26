@@ -19,7 +19,7 @@
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
 
-        function deleteComentario($id){
+        function borraComentario($id){
             $sentencia = $this->db->prepare('DELETE FROM comentarios WHERE id_comentario=?');
             $sentencia->execute(array($id));
         }
