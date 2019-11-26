@@ -9,6 +9,10 @@
   <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
     <input type="password" class="form-control" name="newPass" placeholder="password">
   </div>
+  <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    <h2 class="tituloTabla">Nombre de primer mascota</h2>
+    <input type="password" class="form-control" name="newPregunta" placeholder="password">
+  </div>
   <div class="text-center col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
     <button type="submit" class="btn btn-primary">Aceptar</button>
   </div>

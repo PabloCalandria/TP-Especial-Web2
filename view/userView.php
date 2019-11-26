@@ -18,7 +18,6 @@
             $this->smarty->assign('Users', $users);
             $this->smarty->display('templates/users.tpl');
         }
-        
     }
 
 ?>

@@ -21,5 +21,11 @@ class LoginView {
         $smarty->display('templates/formRegistrarse.tpl');
     }
 
-    
+    function formularioVerifica(){
+        $smarty = new Smarty();
+        $smarty->assign('Context', explode("/", $_GET["action"]));
+        $smarty->assign('Login', isset($_SESSION));
+        $smarty->assign('BASE_URL', BASE_URL);
+        $smarty->display('templates/verificaQuest.tpl');
+    }
 }

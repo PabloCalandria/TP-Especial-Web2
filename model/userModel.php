@@ -22,9 +22,9 @@ class UserModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    function registrar($user,$hash){
-        $sentencia = $this->db->prepare('INSERT INTO user(usuario,contraseña) VALUES (?,?)');
-        $sentencia->execute(array($user,$hash));
+    function registrar($user,$hashPass,$hashQuest){
+        $sentencia = $this->db->prepare('INSERT INTO user(usuario,contraseña,respuesta) VALUES (?,?,?)');
+        $sentencia->execute(array($user,$hashPass,$hashQuest));
     }
 
     function getUsers(){
@@ -47,4 +47,10 @@ class UserModel {
         $sentencia = $this->db->prepare('DELETE FROM user WHERE id_usuario=? ');
         $sentencia->execute(array($id));
     }
+
+    function updateUser($pass,$id){
+        $sentencia = $this->db->prepare('UPDATE user SET contraseña=? WHERE id_usuario=? ');
+        $sentencia->execute(array($pass,$id));
+    }
+    
 }

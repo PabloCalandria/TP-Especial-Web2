@@ -52,4 +52,20 @@
                 header('Location: ' . SIN_PERMISOS); 
             } 
         }
+
+        function restorePassword(){
+            $usuario = $_POST['NewUsuario'];
+            $contraseña = $_POST['NewContraseña'];
+            $pregunta = $_POST['preguntaSecreta'];
+            if($usuario != null && $contraseña != null && $pregunta != null){
+                $user = $this->model->getUser($usuario);
+                if (password_verify($pregunta, $user->respuesta)){
+                    $hashPass = password_hash($contraseña, PASSWORD_DEFAULT);    
+                    $this->model->updateUser($contraseña,$user->id_usuario);
+                    header('Location: ' . BASE_URL);    
+                }
+            }else{
+                header('Location: ' . UPDATE_PASS);    
+            }
+        }
 }

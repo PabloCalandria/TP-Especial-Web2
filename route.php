@@ -15,6 +15,7 @@
     define('USUARIOS' , BASE_URL . "usuarios");
     define('INFO_PRODUCTS' , BASE_URL . "infoProduct");
     define('SIN_PERMISOS' , BASE_URL . "permisoDenegado");
+    define('UPDATE_PASS' , BASE_URL . "formPregunta");
 
     $partesURL = explode("/", $_GET["action"]);
     
@@ -86,6 +87,14 @@
         case 'agregarUser':
             $controller = new LoginController();
             $controller->registrarUser();
+            break;
+        case 'formPregunta':
+            $controller = new LoginController();
+            $controller->viewVerifyQuest();
+            break;
+        case 'verificarPregunta':
+            $controller = new UserController();
+            $controller->restorePassword();
             break;
         case 'editarProduct':
             $controller = new ProductsController();

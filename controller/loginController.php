@@ -41,12 +41,18 @@ class LoginController {
         $this->view->formularioIngresar();
     }
 
+    function viewVerifyQuest(){
+        $this->view->formularioVerifica();
+    }
+
     function registrarUser(){
+        $pregunta = $_POST['newPregunta'];
         $user = $_POST['newUser'];
         $password = $_POST['newPass'];
-        if($user != null && $password != null){
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-            $this->model->registrar($user,$hash);
+        if($user != null && $password != null && $pregunta != null){
+            $hashPass = password_hash($password, PASSWORD_DEFAULT);
+            $hashQuest = password_hash($pregunta, PASSWORD_DEFAULT);
+            $this->model->registrar($user,$hashPass,$hashQuest);
             $this->inicio($user,$password);
         }else {
             header('Location: ' . REGISTRARSE);
