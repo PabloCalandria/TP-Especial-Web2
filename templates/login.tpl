@@ -6,11 +6,11 @@
             <form action="verificarLogin" method="POST" class="col-md-4 offset-md-4 mt-4">
                 <div class="form-group">
                     <label>Usuario</label>
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese usuario">
+                    <input type="text" name="username"  class="form-control" placeholder="Ingrese usuario">
                 </div>
                 <div class="form-group">
                     <label>Contraseña</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Ingrese contraseña">
+                    <input type="password" name="password" class="form-control" placeholder="Ingrese contraseña">
                 </div>
                 <div class = "">
                     <label>{$Message}</label>
@@ -21,7 +21,7 @@
             </form>
             <form action="formPregunta" method="POST" class="col-md-4 offset-md-4 mt-4">
                 <div class="text-center col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
-                    <button type="submit" class="btn btn-primary col-12"> Olvide contraseña </button>
+                    <button type="submit" class="btn btn-primary col-12"> Recuperar contraseña </button>
                 </div>
             </form>
             <form action="registrarse" method="POST" class="col-md-4 offset-md-4 mt-4">

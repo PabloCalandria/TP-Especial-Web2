@@ -93,7 +93,7 @@
             $controller->viewVerifyQuest();
             break;
         case 'verificarPregunta':
-            $controller = new UserController();
+            $controller = new LoginController();
             $controller->restorePassword();
             break;
         case 'editarProduct':
