@@ -7,7 +7,6 @@ function cargarPagina() {
     let app = new Vue({
         el: ".vue-comentarios",
         data: {
-            
             comments: [], 
             auth : true,
         },
@@ -34,9 +33,11 @@ function cargarPagina() {
             "id_cerveza" :  window.location.pathname.split('/')[4],
             "texto" :  document.querySelector('textarea[name=text-comentario]').value ,
             "puntaje" :  document.querySelector('select[name=puntaje-comentario]').value ,
+            "id_usuario": document.querySelector('input[name=id_usuario-comentario]').value,
+            "admin": document.querySelector('input[name=soyAdmin]').value,
         }
         
-
+        
         fetch('api/comentarios', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},       

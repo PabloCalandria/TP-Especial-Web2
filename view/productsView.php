@@ -13,6 +13,7 @@
             $this->smarty->assign('Context', explode("/", $_GET["action"]));
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Admin', $_SESSION['ADMIN']);
+            $this->smarty->assign('User', $_SESSION['ID_USER']);
             $this->smarty->assign('admin', $admin);
             $this->smarty->assign('BASE_URL', BASE_URL);
             $this->smarty->assign('Lista', $lista);
@@ -26,6 +27,7 @@
             $this->smarty->assign('Context', explode("/", $_GET["action"]));
             $this->smarty->assign('Login', isset($_SESSION));
             $this->smarty->assign('Admin', $_SESSION['ADMIN']);
+            $this->smarty->assign('User', $_SESSION['ID_USER']);
             $this->smarty->assign('admin', $admin);
             $this->smarty->assign('BASE_URL', BASE_URL);
             $this->smarty->assign('Producto', $product);

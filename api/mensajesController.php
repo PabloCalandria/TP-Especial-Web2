@@ -11,7 +11,9 @@ class MensajesController extends ApiController{
 
     function addComentario($params = null) {
         $body = $this->getData();
-        $this->model->addComentario($body->id_cerveza, $body->texto, $body->puntaje);
+        $valor = date("Y") . "-" . date("m") . "-" . date("d") . "-" . date("h:i:sa");
+        $this->model->addComentario($body->id_cerveza, $body->texto, $body->puntaje, $body->id_usuario,$valor, $orden);
+        var_dump($body);
         $this->view->response("El comentario se agrego con exito", 200);    
     }
 

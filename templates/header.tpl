@@ -18,7 +18,6 @@
         <script src="js/captcha.js"></script>
         <script src="js/validaciones.js"></script>
     {/if}
-    <script src="js/comentarios.js"></script> {*comentarios*}
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
