@@ -1,13 +1,17 @@
 <?php
 
+include_once('./model/comentarioModel.php');
+
 abstract class ApiController {
 
     protected $comentariosModel;
     protected $view;
+    protected $model;
 
     private $data;
     
     public function __construct() {
+        $this->model = new ComentarioModel();
         $this->view = new JSONView();
         $this->data = file_get_contents("php://input");    }
 

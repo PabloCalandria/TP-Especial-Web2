@@ -9,7 +9,8 @@
     $router = new Router();
 
     // rutas
-    $router->addRoute("comentarios/:ID", "GET", "MensajesController", "getComentarios");
+    $router->addRoute("comentarios/:ID", "GET", "MensajesController", "getComentario");
+    $router->addRoute("comentarios", "GET", "MensajesController", "getComentarios");
     $router->addRoute("comentarios", "POST", "MensajesController", "addComentario");
     $router->addRoute("comentarios/:ID", "DELETE", "MensajesController", "deleteComentario");
 

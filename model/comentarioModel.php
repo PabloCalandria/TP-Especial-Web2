@@ -13,6 +13,12 @@
             $sentencia->execute(array($id,$texto,$puntaje));
         }
 
+        function getComentarios(){
+            $sentencia = $this->db->prepare('SELECT * FROM comentarios');
+            $sentencia->execute(array());
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
+
         function getComentario($id){
             $sentencia = $this->db->prepare('SELECT * FROM comentarios WHERE id_cerveza = ?');
             $sentencia->execute(array($id));

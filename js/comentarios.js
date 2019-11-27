@@ -1,7 +1,7 @@
 "use strict";
 
 function cargarPagina() {
-
+    
     document.querySelector(".form-comentario").addEventListener('submit', addComentario);
 
     let app = new Vue({
@@ -18,7 +18,8 @@ function cargarPagina() {
               method: 'DELETE',
            })
            .then(response => {
-                getComentarios();
+                getComentario();
+                //getComentarios();
            })
            .catch(error => console.log(error));
          }
@@ -42,13 +43,25 @@ function cargarPagina() {
             body: JSON.stringify(data),
         })
         .then(response => {
-            getComentarios();
+            getComentario();
+            //getComentarios();
         })
         .catch(error => console.log(error));
     }
 
     function getComentarios() {
-        let $id = window.location.pathname.split('/')[4];                
+        alert("hola");
+        fetch('api/comentarios') //comentarios/:ID
+        .then(response => response.json())
+        .then(comments => {
+            app.comments = comments; // similar a $this->smarty->assign("tasks", $tasks)
+        })
+        .catch(error => console.log(error));
+    }
+
+    function getComentario() {
+        let $id = window.location.pathname.split('/')[4]; //id del producto           
+        alert($id);
         fetch('api/comentarios/' + $id) //comentarios/:ID
         .then(response => response.json())
         .then(comments => {
@@ -57,7 +70,9 @@ function cargarPagina() {
         .catch(error => console.log(error));
     }
 
-    getComentarios();
+    getComentario();
+
+    //getComentarios();
 
 }
 
