@@ -7,14 +7,13 @@ function cargarPagina() {
     let app = new Vue({
         el: ".vue-comentarios",
         data: {
-            subtitle: "Estas tareas se renderizan desde el cliente usando Vue.js",
             comments: [], 
-            auth: true
+            auth : true,
         },
 
     methods: {
         del: function (id_comentario) {
-          fetch('api/comentarios/' + id_comentario, {
+          fetch("api/comentarios/" + id_comentario, {
               method: 'DELETE',
            })
            .then(response => {
@@ -50,7 +49,6 @@ function cargarPagina() {
     }
 
     function getComentarios() {
-        alert("hola");
         fetch('api/comentarios') //comentarios/:ID
         .then(response => response.json())
         .then(comments => {
@@ -60,9 +58,8 @@ function cargarPagina() {
     }
 
     function getComentario() {
-        let $id = window.location.pathname.split('/')[4]; //id del producto           
-        alert($id);
-        fetch('api/comentarios/' + $id) //comentarios/:ID
+        let id = window.location.pathname.split('/')[4]; //id del producto           
+        fetch("api/comentarios/" + id) //comentarios/:ID
         .then(response => response.json())
         .then(comments => {
             app.comments = comments; // similar a $this->smarty->assign("tasks", $tasks)

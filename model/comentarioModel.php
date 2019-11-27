@@ -25,6 +25,12 @@
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
 
+        function getIdComentario($id){
+            $sentencia = $this->db->prepare('SELECT * FROM comentarios WHERE id_comentario = ?');
+            $sentencia->execute(array($id));
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
+
         function borraComentario($id){
             $sentencia = $this->db->prepare('DELETE FROM comentarios WHERE id_comentario=?');
             $sentencia->execute(array($id));

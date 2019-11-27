@@ -34,9 +34,9 @@ class MensajesController extends ApiController{
         }
     }
 
-    function deleteComentario($params = null){
+    function deleteComentario($params = []){
         $id = $params[':ID'];
-        $comentarios = $this->model->getComentario($id);
+        $comentarios = $this->model->getIdComentario($id);
         if ($comentarios) {
             $this->model->borraComentario($id);
             $this->view->response("comentario id=$id eliminado con éxito", 200);

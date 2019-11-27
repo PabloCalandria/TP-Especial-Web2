@@ -15,6 +15,7 @@
                 <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
                     <textarea  class="form-control" rows="3" cols="50" name="text-comentario"></textarea>
                 </div>
+                <input type="hidden" class="form-control" name="id_producto-comentario" value="21">
                 <div class="form-group col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
 		            <select  name="puntaje-comentario" class="form-control">
                         <option selected disabled hidden>Puntaje</option>

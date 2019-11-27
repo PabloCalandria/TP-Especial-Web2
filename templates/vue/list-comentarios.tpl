@@ -1,7 +1,6 @@
 {literal}
     
     <div class ="vue-comentarios">
-        <h3> {{ subtitle }} </h3>
         <ul>
             <li v-for="comment in comments">
                 <span> {{ comment.texto }} - {{comment.puntaje}} </span>
