@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2019 a las 21:13:55
+-- Tiempo de generación: 27-11-2019 a las 05:23:50
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -51,6 +51,107 @@ INSERT INTO `cerveza` (`id_cerveza`, `nombre`, `cont_alc`, `ibu`, `o_g`, `id_est
 (30, 'test', 4, 4, 4, 13),
 (31, 'test', 3, 4, 8, 15);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id_comentario` int(11) NOT NULL,
+  `id_cerveza` int(11) NOT NULL,
+  `texto` text NOT NULL,
+  `puntaje` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id_comentario`, `id_cerveza`, `texto`, `puntaje`) VALUES
+(118, 29, 'asdas', 4),
+(125, 29, '', 0),
+(126, 29, 'test', 2),
+(127, 29, 'test', 4),
+(128, 29, 'test', 5),
+(129, 29, 'test', 5),
+(130, 29, 'test', 1),
+(131, 29, 'test', 3),
+(132, 21, 'test', 4),
+(133, 21, 'la de jedy es grande', 5),
+(134, 11, 'Muy Buena!', 4),
+(135, 21, 'hola', 1),
+(136, 21, 'dasdadasd', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estilo`
+--
+
+CREATE TABLE `estilo` (
+  `id_estilo` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estilo`
+--
+
+INSERT INTO `estilo` (`id_estilo`, `nombre`) VALUES
+(2, 'rubias'),
+(3, 'negras'),
+(13, 'rojas'),
+(15, 'morena');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes`
+--
+
+CREATE TABLE `imagenes` (
+  `id_imagenes` int(11) NOT NULL,
+  `id_cerveza` int(11) NOT NULL,
+  `url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `imagenes`
+--
+
+INSERT INTO `imagenes` (`id_imagenes`, `id_cerveza`, `url`) VALUES
+(27, 29, 'images/cervezas/5dd41e9f43f15.jpg'),
+(28, 28, 'images/cervezas/5dd82f299a5ea.jpg'),
+(30, 28, 'images/cervezas/5dd82f508cd88.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `user` (
+  `id_usuario` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `contraseña` varchar(255) NOT NULL,
+  `admin` tinyint(1) NOT NULL,
+  `respuesta` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id_usuario`, `usuario`, `contraseña`, `admin`, `respuesta`) VALUES
+(21, 'pablo', '$2y$10$LrXsN89MLtGgZOxVT.qHROahrmU9pnCRIn4Wvfu9/Qpyr34RV7W1a', 1, ''),
+(22, 'carlos', '$2y$10$.MTqk9yODGLckXFex8PkDeEwSmkAJGoVpvXqAYk5UVhpbOJE.yytq', 0, ''),
+(23, 'facu', '$2y$10$KuYZ3s7Ehf7b3DgOzliyS.uAkOo4WqyturdnkWR2gbjFGTpSutnne', 0, ''),
+(28, 'triki', '$2y$10$/oHnVxi0JUg.MfLN9ZV8P.DKosiW4u0/TZZknnNPqjhaRkJ3kUs.y', 0, ''),
+(47, 'andres', '$2y$10$klxMhuSO.AGyukMqu6ltv.lhuBt8QRUAhLbBXmhGKmx4AoKfk8dZq', 0, ''),
+(86, 'test', '$2y$10$HF..ef8SZ9A9bQEl2uJgROVaNPyx5eoSl6L7kNpnH4Y..F5jWW.6.', 0, '$2y$10$Zkw5BK1LNMxAewM0wjqJu.4TFHnDde2I1lBdg6bCupkGNQtCaOA3e'),
+(87, 'Ariel', '$2y$10$dRR.UxTLLQpmDG/5Sw2yOOvwy9542so0QQfn0TmiHkdiolfrZV8Z2', 0, '$2y$10$X0dwUX5bgXfsFYrukiVZ3eohlhjOolfTFNrMI3pZRvMEisMfMpsCG');
+
 --
 -- Índices para tablas volcadas
 --
@@ -63,6 +164,33 @@ ALTER TABLE `cerveza`
   ADD KEY `id_estilo` (`id_estilo`);
 
 --
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `id_cerveza` (`id_cerveza`);
+
+--
+-- Indices de la tabla `estilo`
+--
+ALTER TABLE `estilo`
+  ADD PRIMARY KEY (`id_estilo`);
+
+--
+-- Indices de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`id_imagenes`),
+  ADD KEY `id_cerveza` (`id_cerveza`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `usuario` (`usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -70,7 +198,31 @@ ALTER TABLE `cerveza`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+
+--
+-- AUTO_INCREMENT de la tabla `estilo`
+--
+ALTER TABLE `estilo`
+  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  MODIFY `id_imagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- Restricciones para tablas volcadas
@@ -81,6 +233,18 @@ ALTER TABLE `cerveza`
 --
 ALTER TABLE `cerveza`
   ADD CONSTRAINT `cerveza_ibfk_1` FOREIGN KEY (`id_estilo`) REFERENCES `estilo` (`id_estilo`);
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_cerveza`) REFERENCES `cerveza` (`id_cerveza`);
+
+--
+-- Filtros para la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`id_cerveza`) REFERENCES `cerveza` (`id_cerveza`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
