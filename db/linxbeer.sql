@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2019 a las 05:23:50
+-- Tiempo de generación: 27-11-2019 a las 18:35:09
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -60,28 +60,22 @@ INSERT INTO `cerveza` (`id_cerveza`, `nombre`, `cont_alc`, `ibu`, `o_g`, `id_est
 CREATE TABLE `comentarios` (
   `id_comentario` int(11) NOT NULL,
   `id_cerveza` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `texto` text NOT NULL,
-  `puntaje` int(11) NOT NULL
+  `puntaje` int(11) NOT NULL,
+  `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id_comentario`, `id_cerveza`, `texto`, `puntaje`) VALUES
-(118, 29, 'asdas', 4),
-(125, 29, '', 0),
-(126, 29, 'test', 2),
-(127, 29, 'test', 4),
-(128, 29, 'test', 5),
-(129, 29, 'test', 5),
-(130, 29, 'test', 1),
-(131, 29, 'test', 3),
-(132, 21, 'test', 4),
-(133, 21, 'la de jedy es grande', 5),
-(134, 11, 'Muy Buena!', 4),
-(135, 21, 'hola', 1),
-(136, 21, 'dasdadasd', 0);
+INSERT INTO `comentarios` (`id_comentario`, `id_cerveza`, `id_usuario`, `texto`, `puntaje`, `fecha`) VALUES
+(223, 22, 22, 'Rica!', 4, '2019-11-27 06:16:25'),
+(224, 22, 22, 'Espumosa!', 4, '2019-11-27 06:16:48'),
+(225, 22, 87, 'No me gusto!', 1, '2019-11-27 06:17:19'),
+(226, 29, 87, 'Excelente!!!!!', 5, '2019-11-27 06:17:30'),
+(227, 11, 21, 'ADMIN: NUEVO PRODUCTO!', 5, '2019-11-27 06:18:09');
 
 -- --------------------------------------------------------
 
@@ -123,7 +117,9 @@ CREATE TABLE `imagenes` (
 INSERT INTO `imagenes` (`id_imagenes`, `id_cerveza`, `url`) VALUES
 (27, 29, 'images/cervezas/5dd41e9f43f15.jpg'),
 (28, 28, 'images/cervezas/5dd82f299a5ea.jpg'),
-(30, 28, 'images/cervezas/5dd82f508cd88.jpeg');
+(30, 28, 'images/cervezas/5dd82f508cd88.jpeg'),
+(31, 22, 'images/cervezas/5dde7f9a01c30.jpg'),
+(32, 22, 'images/cervezas/5dde7fa2086e4.jpg');
 
 -- --------------------------------------------------------
 
@@ -204,7 +200,7 @@ ALTER TABLE `cerveza`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
 
 --
 -- AUTO_INCREMENT de la tabla `estilo`
@@ -216,7 +212,7 @@ ALTER TABLE `estilo`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id_imagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_imagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
