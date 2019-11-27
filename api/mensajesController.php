@@ -17,20 +17,24 @@ class MensajesController extends ApiController{
 
     function getComentarios($params = null){
         $comentarios = $this->model->getComentarios();
-        if ($comentarios) {
-            $this->view->response($comentarios, 200);   
-        } else {
-            $this->view->response("No existe la tarea con el id=$id", 404);
+        if($comentarios != null){
+            if ($comentarios) {
+                $this->view->response($comentarios, 200);   
+            } else {
+                $this->view->response("No existe la tarea con el id=$id", 404);
+            }
         }
     }
 
     function getComentario($params = null){
         $id = $params[':ID'];
         $comentarios = $this->model->getComentario($id);
-        if ($comentarios) {
-            $this->view->response($comentarios, 200);   
-        } else {
-            $this->view->response("No existe la tarea con el id=$id", 404);
+        if($comentarios != null){
+            if ($comentarios) {
+                $this->view->response($comentarios, 200);   
+            } else {
+                $this->view->response("No existe la tarea con el id=$id", 404);
+            }
         }
     }
 

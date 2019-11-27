@@ -20,7 +20,7 @@
         }
 
         function getComentario($id){
-            $sentencia = $this->db->prepare('SELECT * FROM comentarios WHERE id_cerveza = ?');
+            $sentencia = $this->db->prepare('SELECT * FROM comentarios WHERE id_cerveza = ?  order by puntaje');
             $sentencia->execute(array($id));
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }

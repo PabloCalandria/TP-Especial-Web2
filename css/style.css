@@ -147,3 +147,20 @@ hr{
     border: 1px solid #FFF;
     border-radius:2px;
 }
+
+span{
+    color:black;
+    font-size: 1.5em;
+}
+
+.span-puntaje{
+    color:rgb(156, 118, 20);
+}
+
+.span-texto{
+    color:white;
+}
+
+.li-comment{
+    color:pink;
+}

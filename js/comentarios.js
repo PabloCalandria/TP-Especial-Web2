@@ -7,6 +7,7 @@ function cargarPagina() {
     let app = new Vue({
         el: ".vue-comentarios",
         data: {
+            
             comments: [], 
             auth : true,
         },
