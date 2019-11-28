@@ -7,6 +7,7 @@ function cargarPagina() {
     let app = new Vue({
         el: ".vue-comentarios",
         data: {
+            admin : document.querySelector('input[name=admin-comentario]').value,
             comments: [], 
             auth : true,
         },
@@ -34,7 +35,6 @@ function cargarPagina() {
             "texto" :  document.querySelector('textarea[name=text-comentario]').value ,
             "puntaje" :  document.querySelector('select[name=puntaje-comentario]').value ,
             "id_usuario": document.querySelector('input[name=id_usuario-comentario]').value,
-            "admin": document.querySelector('input[name=soyAdmin]').value,
         }
         
         
