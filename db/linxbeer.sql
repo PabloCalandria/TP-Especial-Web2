@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2019 a las 18:35:09
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.3.8
+-- Tiempo de generación: 28-11-2019 a las 22:04:32
+-- Versión del servidor: 10.1.39-MariaDB
+-- Versión de PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,12 +44,10 @@ CREATE TABLE `cerveza` (
 INSERT INTO `cerveza` (`id_cerveza`, `nombre`, `cont_alc`, `ibu`, `o_g`, `id_estilo`) VALUES
 (11, 'Quilmes', 1, 5, 10, 2),
 (21, 'Porter', 3, 3, 5, 3),
-(22, 'palermo', 0, 0, 0, 2),
+(22, 'Palermo', 7, 7, 4, 2),
 (23, 'Ipa', 2, 3, 4, 13),
 (28, 'Corona', 1, 1, 1, 2),
-(29, 'Kolsh', 5, 4, 3, 2),
-(30, 'test', 4, 4, 4, 13),
-(31, 'test', 3, 4, 8, 15);
+(29, 'Kolsh', 5, 4, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -75,7 +73,7 @@ INSERT INTO `comentarios` (`id_comentario`, `id_cerveza`, `id_usuario`, `texto`,
 (224, 22, 22, 'Espumosa!', 4, '2019-11-27 06:16:48'),
 (225, 22, 87, 'No me gusto!', 1, '2019-11-27 06:17:19'),
 (226, 29, 87, 'Excelente!!!!!', 5, '2019-11-27 06:17:30'),
-(227, 11, 21, 'ADMIN: NUEVO PRODUCTO!', 5, '2019-11-27 06:18:09');
+(227, 11, 21, 'Buenarda!', 5, '2019-11-27 06:18:09');
 
 -- --------------------------------------------------------
 
@@ -93,10 +91,10 @@ CREATE TABLE `estilo` (
 --
 
 INSERT INTO `estilo` (`id_estilo`, `nombre`) VALUES
-(2, 'rubias'),
-(3, 'negras'),
-(13, 'rojas'),
-(15, 'morena');
+(2, 'Rubias'),
+(3, 'Negras'),
+(13, 'Rojas'),
+(15, 'Morenas');
 
 -- --------------------------------------------------------
 
@@ -109,17 +107,6 @@ CREATE TABLE `imagenes` (
   `id_cerveza` int(11) NOT NULL,
   `url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `imagenes`
---
-
-INSERT INTO `imagenes` (`id_imagenes`, `id_cerveza`, `url`) VALUES
-(27, 29, 'images/cervezas/5dd41e9f43f15.jpg'),
-(28, 28, 'images/cervezas/5dd82f299a5ea.jpg'),
-(30, 28, 'images/cervezas/5dd82f508cd88.jpeg'),
-(31, 22, 'images/cervezas/5dde7f9a01c30.jpg'),
-(32, 22, 'images/cervezas/5dde7fa2086e4.jpg');
 
 -- --------------------------------------------------------
 
@@ -140,13 +127,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_usuario`, `usuario`, `contraseña`, `admin`, `respuesta`) VALUES
-(21, 'pablo', '$2y$10$LrXsN89MLtGgZOxVT.qHROahrmU9pnCRIn4Wvfu9/Qpyr34RV7W1a', 1, ''),
-(22, 'carlos', '$2y$10$.MTqk9yODGLckXFex8PkDeEwSmkAJGoVpvXqAYk5UVhpbOJE.yytq', 0, ''),
-(23, 'facu', '$2y$10$KuYZ3s7Ehf7b3DgOzliyS.uAkOo4WqyturdnkWR2gbjFGTpSutnne', 0, ''),
-(28, 'triki', '$2y$10$/oHnVxi0JUg.MfLN9ZV8P.DKosiW4u0/TZZknnNPqjhaRkJ3kUs.y', 0, ''),
-(47, 'andres', '$2y$10$klxMhuSO.AGyukMqu6ltv.lhuBt8QRUAhLbBXmhGKmx4AoKfk8dZq', 0, ''),
-(86, 'test', '$2y$10$HF..ef8SZ9A9bQEl2uJgROVaNPyx5eoSl6L7kNpnH4Y..F5jWW.6.', 0, '$2y$10$Zkw5BK1LNMxAewM0wjqJu.4TFHnDde2I1lBdg6bCupkGNQtCaOA3e'),
-(87, 'Ariel', '$2y$10$dRR.UxTLLQpmDG/5Sw2yOOvwy9542so0QQfn0TmiHkdiolfrZV8Z2', 0, '$2y$10$X0dwUX5bgXfsFYrukiVZ3eohlhjOolfTFNrMI3pZRvMEisMfMpsCG');
+(88, 'admin', '$2y$10$ZDgi/s3pgPwVIbvUWXreIeRZv1.KYt65ojP/FkgGu/C3QXDdJildG', 1, '$2y$10$ZXLu6kqSuQzcCPX2pRxoruE3hK9lkV/M4GFNVs1pwwoxDKu1SZzVW'),
+(89, 'user', '$2y$10$l/RsmouZFRUZnLEpocJpDeVLW5HSEmoYjrMWoZNNxLouKC37Erhne', 0, '$2y$10$Xn9fVM7ZVGwJ7AsAPKRf6.NoZD1Pb6RHDDpsWwRessW532ZENRBaW'),
+(91, 'facu', '$2y$10$HjlLHvfimsErysI3I/Fg2uDXW5dVq5JIlNPuOy.D6ouSqQPVzpf9C', 0, '$2y$10$56o1o5GL5b2G1fnsVt2wOeSVkanSn8.VUOqQKHRJIhxd.XOnrFqJ6'),
+(92, 'pablo', '$2y$10$nxhRcAvtWh8eUq47ltL8y.DbAm7j62yGT7OxJSDIirwIOrn.PK1zK', 0, '$2y$10$wrCW/GGIhntZ/V9lQssxze5QGJa99xTC/dcRfk1Utsmz4X8GMQZ82');
 
 --
 -- Índices para tablas volcadas
@@ -200,7 +184,7 @@ ALTER TABLE `cerveza`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
 
 --
 -- AUTO_INCREMENT de la tabla `estilo`
@@ -212,13 +196,13 @@ ALTER TABLE `estilo`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id_imagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_imagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- Restricciones para tablas volcadas
