@@ -66,7 +66,8 @@ function cargarPagina() {
         .then(comments => {
             app.comments = comments; // similar a $this->smarty->assign("tasks", $tasks)
         })
-        .catch(error => console.log(error));
+        .catch(comments => {
+            app.comments = comments});
     }
 
     getComentario();
